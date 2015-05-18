@@ -531,6 +531,8 @@ You can send multiple queries with a single API call using a batch of queries:
 
 <%= snippet("multiple_queries") %>
 
+The resulting JSON answer contains a ```results``` array storing the underlying queries answers. The answers order is the same than the requests order.
+
 You can specify a strategy to optimize your multiple queries:
 - **none**: Execute the sequence of queries until the end.
 - **stopIfEnoughMatches**: Execute the sequence of queries until the number of hits is reached by the sum of hits.
