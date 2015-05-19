@@ -1,0 +1,16 @@
+```js
+client.batch([{
+  action: 'addObject',
+  indexName: 'clients',
+  body: {
+    name: 'Bill'
+  }
+}, {
+  action: 'udpateObject',
+  indexName: 'fruits',
+  body: {
+    objectID: '29138',
+    name: 'banana'
+  }
+}], cb)
+```
