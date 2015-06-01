@@ -836,10 +836,39 @@ The move command is particularly useful if you want to update a big index atomic
 Backup / Retrieve of all index content
 -------------
 
+<% if js? -%>
+You can retrieve all index content by using the browseAll() method:
+
+<%= snippet("backup_index") %>
+
+You can also use the `browse(query, queryParameters)` and `browseFrom(browseCursor)` methods to programmatically browse your index content:
+
+```js
+index.browse('jazz', function browseDone(err, content) {
+  if (err) {
+    throw err;
+  }
+
+  console.log('We are at page %d on a total of %d pages, with %d hits.', content.page, content.nbPages, content.hits.length);
+
+  if (content.cursor) {
+    index.browseFrom(content.cursor, function browseFromDone(err, content) {
+      if (err) {
+        throw err;
+      }
+
+      console.log('We are at page %d on a total of %d pages, with %d hits.', content.page, content.nbPages, content.hits.length);
+    });
+  }
+});
+```
+
+<% else -%>
 You can retrieve all index content for backup purposes or for SEO using the browse method.
 This method retrieves 1,000 objects via an API call and supports pagination.
 
 <%= snippet("backup_index") %>
+<% end -%>
 
 Logs
 -------------
