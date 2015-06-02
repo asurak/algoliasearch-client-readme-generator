@@ -1,11 +1,23 @@
 ```js
-// Get first page
-index.browse(0, function(err, content) {
-  console.log(content);
+// browseAll can take any query and queryParameter like the
+// search function. Here we do not provide any because we want all the index's
+// objects
+var browser = index.browseAll();
+var hits = [];
+
+browser.on('result', function onResult(content) {
+  hits = hits.concat(content.hits);
 });
 
-// Get second page
-index.browse(1, function(err, content) {
-  console.log(content);
+browser.on('end', function onEnd() {
+  console.log('Finished!');
+  console.log('We got %d hits', hits.length);
 });
+
+browser.on('error', function onError(err) {
+  throw err;
+});
+
+// You can stop the process at any point with
+// browser.stop();
 ```
