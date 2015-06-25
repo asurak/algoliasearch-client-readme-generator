@@ -64,6 +64,7 @@ Table of Contents
     - [jQuery module](#jquery-module)
     - [AngularJS module](#angularjs-module)
   - [Backend (Node.js)](#backend-nodejs)
+1. [Client options](#client-options)
 1. [Callback convention](#callback-convention)
 1. [Promises](#promises)
 1. [Request strategy](#request-strategy)
@@ -203,6 +204,30 @@ function searchCallback(err, content) {
 <% end %>
 
 <% if js? %>
+Client options
+-------------
+
+In most situations, there is no need to tune the options. We provide this list to be
+transparent with our users.
+
+- `timeout` timeout for requests to our servers
+  + in Node.js this is an inactivity timeout. default to 15s
+  + in the browser, this is a global timeout. default to 2s (incremental)
+- `protocol` protocol to use when communicating with algolia
+  + in the browser, we use the page protocol by default
+  + in Node.js it's https by default
+- `hosts.read` array of read hosts to use to call Algolia servers, computed automatically
+- `hosts.write` array of write hosts to use to call Algolia servers, computed automatically
+- `httpAgent` <sup>node-only</sup> [Node.js httpAgent](https://nodejs.org/api/http.html#http_class_http_agent) to use when communicating with Algolia servers. 
+
+To pass an option, use:
+
+```js
+var client = algoliasearch(applicationId, apiKey, {
+  timeout: 4000
+})
+```
+
 Callback convention
 -------------
 
