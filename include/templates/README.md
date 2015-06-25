@@ -460,7 +460,7 @@ You can use the following optional arguments<%= puts({"C#" => " on Query class",
   * **full**: If all the query terms were found in the attribute.
   * **partial**: If only some of the query terms were found.
   * **none**: If none of the query terms were found.
- * **attributesToSnippet**: A string that contains the list of attributes to snippet alongside the number of words to return (syntax is `attributeName:nbWords`). Attributes are separated by commas (Example: `attributesToSnippet=name:10,content:10`). <br/>You can also use a string array encoding (Example: `attributesToSnippet: ["name:10","content:10"]`). By default, no snippet is computed.
+ * **attributesToSnippet**: An array of strings representing the attributes to snippet, alongside the number of words to return (syntax is `attributeName:nbWords`). Example: `attributesToSnippet: ["name:10","content:10"]`). By default, no snippet is computed.
  * **getRankingInfo**: If set to 1, the result hits will contain ranking information in the **_rankingInfo** attribute.
  <% end %>
 
