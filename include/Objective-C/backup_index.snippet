@@ -1,14 +1,13 @@
 ```objc
-// Get first page
-[index browse:0 success:^(ASRemoteIndex *index, NSUInteger page, NSDictionary *result) {
-  NSLog(@"Index Content: %@", result);
-} failure:^(ASRemoteIndex *index, NSUInteger page, NSString *errorMessage) {
-  NSLog(@"browse error: %@", errorMessage);
+// Iterate with a filter over the index
+[index browseWithQuery:query block:^(ASBrowseIterator *iterator, BOOL end, NSString *error) {
+
+```    if (error != nil) {
+        // Handle errors
+    } else if (end) {
+        // End of the index
+    } else {
+        // Do something
+        [iterator next];
+    }
 }];
-// Get second page
-[index browse:1 success:^(ASRemoteIndex *index, NSUInteger page, NSDictionary *result) {
-  NSLog(@"Index Content: %@", result);
-} failure:^(ASRemoteIndex *index, NSUInteger page, NSString *errorMessage) {
-  NSLog(@"browse error: %@", errorMessage);
-}];
-```

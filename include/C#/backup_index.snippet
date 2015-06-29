@@ -1,10 +1,4 @@
 ```csharp
-// Get first page
-index.Browse(0);
-// Asynchronous
-// await index.BrowseAsync(0);
-// Get second page
-index.Browse(1);
-// Asynchronous
-// await index.BrowseAsync(1);
+// Iterate with a filter over the index
+IndexIterator it = index.BrowseAll(new Query("text"));
 ```

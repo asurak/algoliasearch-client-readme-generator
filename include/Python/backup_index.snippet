@@ -1,7 +1,7 @@
 ```python
-# Get first page
-print index.browse(0)
-# Get second page
-print index.browse(1)
+# Iterate with a filter over the index
+res = self.index.browse_all({"query": "test", "numericFilters": "i<42"});
+for hit in res
+	# Do something
 ```
 

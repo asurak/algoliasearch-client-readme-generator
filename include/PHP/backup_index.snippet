@@ -1,7 +1,6 @@
 ```php
-// Get first page
-$res = $index->browse(0);
-// Get second page
-$res = $index->browse(1);
+// Iterate with a filter over the index
+foreach ($this->index->browse('', array("numericFilters" => "i<42")) as $key => $value)
+    ;//Do something
 ```
 

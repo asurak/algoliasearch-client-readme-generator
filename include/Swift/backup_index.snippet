@@ -1,18 +1,12 @@
 ```swift
-// Get first page
-index.browse(0, block: { (JSON, error) -> Void in
-	if let error = error {
-		println("Browse error: \(error)")
-	} else {
-		println("Index content: \(JSON)")
-	}
-})
-// Get second page
-index.browse(1, block: { (JSON, error) -> Void in
-	if let error = error {
-		println("Browse error: \(error)")
-	} else {
-		println("Index content: \(JSON)")
-	}
+self.index.browse(query, block: { (iterator, end, error) -> Void in
+    if let error = error {
+        // Handle errors
+    } else if end {
+        // End of index
+    } else {
+        // Do something
+        iterator.next()
+    }
 })
 ```

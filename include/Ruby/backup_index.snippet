@@ -1,6 +1,6 @@
 ```ruby
-# Get first page
-puts index.browse(0)
-# Get second page
-puts index.browse(1)
+# Iterate with a filter over the index
+index.browse({:query => "test", :numericFilters => 'i=42'}) do
+	# Do something
+end
 ```

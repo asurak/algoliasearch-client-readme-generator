@@ -1,6 +1,11 @@
 ```go
-// Get the first page
-res, err := index.Browse(0, 1000)
-// Get the second page
-res, err = index.Browse(1, 1000)
+// Iterate with a filter over the index
+items, err := index.BrowseAll(map[string]interface{}{"query": "text", "numericFilters": "i<42"}
+for {
+	hit, err := items.Next()
+	if err {
+		break
+	}
+}
 ```
+

@@ -1,6 +1,4 @@
 ```java
-// Get first page
-index.browse(0);
-// Get second page
-index.browse(1);
+// Iterate with a filter over the index
+Iterator<JSONObject> it = index.browse(new Query("text").setNumericFilters("i<42"));
 ```
