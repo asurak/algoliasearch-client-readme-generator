@@ -1,7 +1,8 @@
 ```php
 // Iterate with a filter over the index
-foreach ($this->index->browse('', array("numericFilters" => "i<42")) as $key => $value)
-    ;//Do something
+foreach ($this->index->browse('', array("numericFilters" => "i<42")) as $hit) {
+  print_r($hit);
+}
 
 $next_cursor = $this->index->browseFrom('', array("numericFilters" => "i<42"), null)["cursor"];
 ```
