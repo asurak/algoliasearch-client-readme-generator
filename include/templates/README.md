@@ -899,7 +899,7 @@ index.browse('jazz', function browseDone(err, content) {
 
 <% else -%>
 You can retrieve all index content for backup purposes or for SEO using the browse method.
-This method can retrieve up to 1,000 objects per call and supports full text search, filters.
+This method can retrieve up to 1,000 objects per call and supports full text search and filters but the distinct feature is not available
 Unlike the search method, the sort by typo, proximity, geo distance and matched words is not applied, the hits are only sorted by numeric attributes specified in the ranking and the custom ranking.
 
 You can browse the index:

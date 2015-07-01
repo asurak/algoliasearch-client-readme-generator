@@ -1,8 +1,9 @@
 ```objc
 // Iterate with a filter over the index
 [index browseWithQuery:query block:^(ASBrowseIterator *iterator, BOOL end, NSString *error) {
-
-```    if (error != nil) {
+	// Retrieve the next cursor from the browse method
+	[iterator valueForkey:cursor];
+    if (error != nil) {
         // Handle errors
     } else if (end) {
         // End of the index
@@ -11,3 +12,4 @@
         [iterator next];
     }
 }];
+```

@@ -1,7 +1,11 @@
 ```python
 # Iterate with a filter over the index
-res = self.index.browse_all({"query": "test", "numericFilters": "i<42"});
+res = self.index.browse_all({"query": "test", "numericFilters": "i<42"})
 for hit in res
 	# Do something
+
+# Retrieve the next cursor from the browse method
+res = self.index.browse_from({"query": "test", "numericFilters": "i<42"}, None)
+print res["cursor"]
 ```
 

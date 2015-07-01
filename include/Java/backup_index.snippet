@@ -1,4 +1,8 @@
 ```java
 // Iterate with a filter over the index
 Iterator<JSONObject> it = index.browse(new Query("text").setNumericFilters("i<42"));
+
+// Retrieve the next cursor from the browse method
+Iterator<JSONObject> it  = index.browseFrom(new Query("text").setNumericFilters("i<42"), "");
+System.out.println(it.getCursor());
 ```

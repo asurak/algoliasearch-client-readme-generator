@@ -20,4 +20,9 @@ browser.on('error', function onError(err) {
 
 // You can stop the process at any point with
 // browser.stop();
+
+// Retrieve the next cursor from the browse method
+index.browse(query, function(err, content) {
+	console.log(content[cursor]);
+});
 ```
