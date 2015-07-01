@@ -4,6 +4,6 @@ foreach ($this->index->browse('', array("numericFilters" => "i<42")) as $hit) {
   print_r($hit);
 }
 
-$next_cursor = $this->index->browseFrom('', array("numericFilters" => "i<42"), null)["cursor"];
+$next_cursor = $this->index->browseFrom('', array("numericFilters" => "i<42"))["cursor"];
 ```
 
