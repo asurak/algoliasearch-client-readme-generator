@@ -1,7 +1,7 @@
 ```swift
-self.index.browse(query, block: { (iterator, end, error) -> Void in
+index.browse(query, block: { (iterator, end, error) -> Void in
 	// Retrieve the next cursor from the browse method
-	print(iterator.cursor)
+	println(iterator.cursor)
     if let error = error {
         // Handle errors
     } else if end {
@@ -11,5 +11,4 @@ self.index.browse(query, block: { (iterator, end, error) -> Void in
         iterator.next()
     }
 })
-
 ```
