@@ -697,7 +697,7 @@ Batch writes
 -------------
 
 You may want to perform multiple operations with one API call to reduce latency.
-We expose three methods to perform batch operations:
+We expose four methods to perform batch operations:
  * `<%= puts({ "JavaScript" => "addObjects", "PHP" => "addObjects", "Python" => "add_objects", "Ruby" => "add_objects", "Shell" => "addObject", 'C#' => 'AddObjects', 'Java' => 'addObjects', 'Android' => 'addObjects', 'Objective-C' => 'addObjects', 'GO' => 'AddObjects' }) %>`: Add an array of objects using automatic `objectID` assignment.
  * `<%= puts({ "JavaScript" => "saveObjects", "PHP" => "saveObjects", "Python" => "save_objects", "Ruby" => "save_objects", "Shell" => "saveObject", 'C#' => 'SaveObjects', 'Java' => 'saveObjects', 'Android' => 'saveObjects', 'Objective-C' => 'saveObjects', 'GO' => 'UpdateObjects' }) %>`: Add or update an array of objects that contains an `objectID` attribute.
  * `<%= puts({ "JavaScript" => "deleteObjects", "PHP" => "deleteObjects", "Python" => "delete_objects", "Ruby" => "delete_objects", "Shell" => "deleteObject", 'C#' => 'DeleteObjects', 'Java' => 'deleteObjects', 'Android' => 'deleteObjects', 'Objective-C' => 'deleteObjects', 'GO' => "DeleteObjects" }) %>`: Delete an array of objectIDs.
