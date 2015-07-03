@@ -17,6 +17,30 @@ If you were using our Node.js version (V1, npm `algolia-search`), [read the migr
 **&lt;/New JavaScript clients&gt;**
 <% end -%>
 
+<% if swift? -%>
+**&lt;Welcome Objective-C developers&gt;**
+
+In July 2015, we release a new version of our Swift client able to work with Swift and Objective-C.
+
+If you were using our Objective-C client, [read the migration guide](https://github.com/algolia/algoliasearch-client-swift/wiki/Migration-guide-from-Objective-C-to-Swift-API-Client).
+
+The Objective-C API Client is still supported and can be found [here](https://github.com/algolia/algoliasearch-client-objc).
+
+**&lt;/Welcome Objective-C developers&gt;**
+<% end -%>
+
+<% if objc? -%>
+**&lt;Welcome Swift developers&gt;**
+
+In June 2015, we release our [Swift API Client](https://github.com/algolia/algoliasearch-client-swift).
+
+It is able to work with Swift and Objective-C. If you plan to use Swift in your project, please use it since we don't support Swift in our Objective-C API Client.
+
+The Objective-C API Client is still supported and updated.
+
+**&lt;/Welcome Swift developers&gt;**
+<% end -%>
+
 <%#    ************************** INTRO ********************************** %>
 
 [Algolia Search](http://www.algolia.com) is a hosted full-text, numerical, and faceted search engine capable of delivering realtime results from the first keystroke.
@@ -218,7 +242,7 @@ transparent with our users.
   + in Node.js it's https by default
 - `hosts.read` array of read hosts to use to call Algolia servers, computed automatically
 - `hosts.write` array of write hosts to use to call Algolia servers, computed automatically
-- `httpAgent` <sup>node-only</sup> [Node.js httpAgent](https://nodejs.org/api/http.html#http_class_http_agent) to use when communicating with Algolia servers. 
+- `httpAgent` <sup>node-only</sup> [Node.js httpAgent](https://nodejs.org/api/http.html#http_class_http_agent) to use when communicating with Algolia servers.
 
 To pass an option, use:
 
@@ -427,7 +451,7 @@ You can use the following optional arguments<%= puts({"C#" => " on Query class",
  * **<%= puts({'C#' => 'SetRemoveWordsIfNoResults', 'Java' => 'removeWordsIfNoResults', 'Android' => 'removeWordsIfNoResults', 'Objective-C' => 'setRemoveWordsIfNoResults'}, "removeWordsIfNoResults") %>**: This option is used to select a strategy in order to avoid having an empty result page. There are three different options:
   * **<%= puts({'C#' => 'LAST_WORDS', 'Java' => 'REMOVE_LAST_WORDS', 'Android' => 'REMOVE_LAST_WORDS'}, "lastWords") %>**: When a query does not return any results, the last word will be added as optional. The process is repeated with n-1 word, n-2 word, ... until there are results.
   * **<%= puts({'C#' => 'FIRST_WORDS', 'Java' => 'REMOVE_FIRST_WORDS', 'Android' => 'REMOVE_FIRST_WORDS'}, "firstWords") %>**: When a query does not return any results, the first word will be added as optional. The process is repeated with second word, third word, ... until there are results.
-  * **<%= puts({'C#' => 'ALL_OPTIONAL', 'Java' => 'REMOVE_ALL_OPTIONAL', 'Android' => 'REMOVE_ALL_OPTIONAL'}, "allOptional") %>**: When a query does not return any results, a second trial will be made with all words as optional. This is equivalent to transforming the AND operand between query terms to an OR operand. 
+  * **<%= puts({'C#' => 'ALL_OPTIONAL', 'Java' => 'REMOVE_ALL_OPTIONAL', 'Android' => 'REMOVE_ALL_OPTIONAL'}, "allOptional") %>**: When a query does not return any results, a second trial will be made with all words as optional. This is equivalent to transforming the AND operand between query terms to an OR operand.
   * **<%= puts({'C#' => 'NONE', 'Java' => 'REMOVE_NONE', 'Android' => 'REMOVE_NONE'}, "none") %>**: No specific processing is done when a query does not return any results (default behavior).
  * **<%= puts({'C#' => 'SetMinWordSizeToAllowOneTypo', 'Java' => 'setMinWordSizeToAllowOneTypo', 'Android' => 'setMinWordSizeToAllowOneTypo', 'Objective-C' => 'minWordSizeForApprox1'}, "minWordSizefor1Typo") %>**: The minimum number of characters in a query word to accept one typo in this word.<br/>Defaults to 4.
  * **<%= puts({'C#' => 'SetMinWordSizeToAllowTwoTypos', 'Java' => 'setMinWordSizeToAllowTwoTypos', 'Android' => 'setMinWordSizeToAllowTwoTypos', 'Objective-C' => 'minWordSizeForApprox2'}, "minWordSizefor2Typos") %>**: The minimum number of characters in a query word to accept two typos in this word.<br/>Defaults to 8.
