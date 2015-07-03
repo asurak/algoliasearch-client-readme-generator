@@ -1,18 +1,18 @@
 ```swift
 // Rename MyIndex in MyIndexNewName
-client.moveIndex("MyIndex", to: "MyIndexNewName", block: { (JSON, error) -> Void in
+client.moveIndex("MyIndex", to: "MyIndexNewName", block: { (content, error) -> Void in
 	if let error = error {
 		println("Move failure: \(error)")
 	} else {
-		println("Move success: \(JSON)")
+		println("Move success: \(content)")
 	}
 })
 // Copy MyIndex in MyIndexCopy
-client.copyIndex("MyIndex", to: "MyIndexCopy", block: { (JSON, error) -> Void in
+client.copyIndex("MyIndex", to: "MyIndexCopy", block: { (content, error) -> Void in
 	if let error = error {
 		println("Copy failure: \(error)")
 	} else {
-		println("Copy success: \(JSON)")
+		println("Copy success: \(content)")
 	}
 })
 ```

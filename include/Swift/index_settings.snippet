@@ -1,7 +1,7 @@
 ```swift
-index.getSettings(block: { (JSON, error) -> Void in
+index.getSettings(block: { (content, error) -> Void in
 	if error == nil 
-		println("Settings: \(JSON)")
+		println("Settings: \(content)")
 	}
 })
 ```

@@ -1,17 +1,17 @@
 ```swift
 let index = client.getIndex("contacts")
-index.search(Query(query: "s"), block: { (JSON, error) -> Void in
+index.search(Query(query: "s"), block: { (content, error) -> Void in
 	if error == nil {
-		println("Result: \(JSON)")
+		println("Result: \(content)")
 	}
 })
 
 let query = Query(query: "s")
 query.attributesToRetrieve = ["firstname", "lastname"]
 query.hitsPerPage = 50
-index.search(query, block: { (JSON, error) -> Void in
+index.search(query, block: { (content, error) -> Void in
 	if error == nil {
-		println("Result: \(JSON)")
+		println("Result: \(content)")
 	}
 })
 ```

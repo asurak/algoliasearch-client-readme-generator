@@ -7,9 +7,9 @@ let queries = [
 	["indexName": "products", "query": anotherQueryObject],
 	["indexName": "products", "query": anotherQueryObject]
 ]
-client.multipleQueries(queries, block: { (JSON, error) -> Void in
+client.multipleQueries(queries, block: { (content, error) -> Void in
 	if error == nil {
-		println("Result: \(JSON)")
+		println("Result: \(content)")
 	}
 })
 ```

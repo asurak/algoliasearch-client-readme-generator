@@ -1,9 +1,9 @@
 Without any prior configuration, you can start indexing [500 contacts](https://github.com/algolia/algoliasearch-client-csharp/blob/master/contacts.json) in the ```contacts``` index using the following code:
 ```swift
-// Load JSON file
+// Load content file
 let jsonPath = NSBundle.mainBundle().pathForResource("contacts", ofType: "json")
 let jsonData = NSData.dataWithContentsOfMappedFile("jsonPath")
-let dict = NSJSONSerialization.JSONObjectWithData(jsonData, options: 0, error: nil)
+let dict = NScontentSerialization.contentObjectWithData(jsonData, options: 0, error: nil)
 // Load all objects of json file in an index named "contacts"
 index.addObjects(dict["objects"], block: nil)
 ```

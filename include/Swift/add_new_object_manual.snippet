@@ -1,8 +1,8 @@
 ```swift
 let newObject = ["firstname": "Jimmie", "lastname": "Barninger"]
-index.addObject(object, withID: "myID", block: { (JSON, error) -> Void in
+index.addObject(object, withID: "myID", block: { (content, error) -> Void in
 	if error == nil {
-		let objectID = JSON!["objectID"] as String
+		let objectID = content!["objectID"] as String
 		println("Object ID: \(objectID)")
 	}
 )

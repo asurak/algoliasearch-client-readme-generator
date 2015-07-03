@@ -1,7 +1,7 @@
 ```swift
-index.addObject(newObject, block: { (JSON, error) -> Void in
+index.addObject(newObject, block: { (content, error) -> Void in
 	if error == nil {
-		self.index.waitTask(JSON!["taskID"] as Int, block: { (JSON, error) -> Void in
+		self.index.waitTask(content!["taskID"] as Int, block: { (content, error) -> Void in
 			if error == nil {
 				println("New object is indexed!")
 			}

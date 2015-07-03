@@ -1,15 +1,15 @@
 To list existing keys, you can use `listUserKeys` method:
 ```swift
 // Lists global API keys
-client.listUserKeys(block: { (JSON, error) -> Void in
+client.listUserKeys(block: { (content, error) -> Void in
 	if error == nil {
-		println("User keys: \(JSON)")
+		println("User keys: \(content)")
 	}
 })
 // Lists API keys that can access only to this index
-index.listUserKeys(block: { (JSON, error) -> Void in
+index.listUserKeys(block: { (content, error) -> Void in
 	if error == nil {
-		println("User keys: \(JSON)")
+		println("User keys: \(content)")
 	}
 })
 ```

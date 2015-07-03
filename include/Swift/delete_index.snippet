@@ -1,5 +1,5 @@
 ```swift
-client.deleteIndex("contacts", block: { (JSON, error) -> Void in
+client.deleteIndex("contacts", block: { (content, error) -> Void in
 	if let error = error {
 		println("Could not delete: \(error)")
 	}
