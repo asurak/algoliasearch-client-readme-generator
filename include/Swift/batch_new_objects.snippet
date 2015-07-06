@@ -1,9 +1,9 @@
 ```swift
 let obj1 = ["firstname": "Jimmie", "lastname": "Barninger"]
 let obj2 = ["firstname": "Warren", "lastname": "Speach"]
-index.addObjects([obj1, obj2], block: { (JSON, error) -> Void in
+index.addObjects([obj1, obj2], block: { (content, error) -> Void in
 	if error == nil {
-		println("Object IDs: \(JSON)")
+		println("Object IDs: \(content)")
 	}
 })
 ```

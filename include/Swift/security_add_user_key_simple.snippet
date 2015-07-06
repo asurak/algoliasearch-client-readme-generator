@@ -1,15 +1,15 @@
 ```swift
 // Creates a new global API key that can only perform search actions
-client.addUserKey(["search"], block: { (JSON, error) -> Void in
+client.addUserKey(["search"], block: { (content, error) -> Void in
 	if error == nil {
-		let key = JSON!["key"] as String
+		let key = content!["key"] as String
 		println("API key: \(key)")
 	}
 })
 // Creates a new API key that can only perform search action on this index
-index.addUserKey(["search"], block: { (JSON, error) -> Void in
+index.addUserKey(["search"], block: { (content, error) -> Void in
 	if error == nil {
-		let key = JSON!["key"] as String
+		let key = content!["key"] as String
 		println("API key: \(key)")
 	}
 })

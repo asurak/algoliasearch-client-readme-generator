@@ -1,7 +1,7 @@
 ```swift
-client.listIndexes(block: { (JSON, error) -> Void in
+client.listIndexes(block: { (content, error) -> Void in
 	if error == nil {
-		println("Indexes: \(JSON)")
+		println("Indexes: \(content)")
 	}
 })
 ```

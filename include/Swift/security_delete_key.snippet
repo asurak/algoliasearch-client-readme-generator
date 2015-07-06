@@ -1,12 +1,12 @@
 ```swift
 // Deletes a global key
-client.deleteUserKey("myAPIKey", block: { (JSON, error) -> Void in
+client.deleteUserKey("myAPIKey", block: { (content, error) -> Void in
 	if let error = error {
 		println("Delete error: \(error)")
 	}
 })
 // Deletes an index specific key
-index.deleteUserKey("myAPIKey", block: { (JSON, error) -> Void in
+index.deleteUserKey("myAPIKey", block: { (content, error) -> Void in
 	if let error = error {
 		println("Delete error: \(error)")
 	}

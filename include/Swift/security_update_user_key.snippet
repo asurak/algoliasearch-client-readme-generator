@@ -1,15 +1,15 @@
 ```swift
 // Update an existing global API key that is valid for 300 seconds
-client.updateUserKey("myKey", withACL: ["search"], andValidity: 300, maxQueriesPerIPPerHour: 0, maxHitsPerQuery: 0, block: { (JSON, error) -> Void in
+client.updateUserKey("myKey", withACL: ["search"], andValidity: 300, maxQueriesPerIPPerHour: 0, maxHitsPerQuery: 0, block: { (content, error) -> Void in
 	if error == nil {
-		let key = JSON!["key"] as String
+		let key = content!["key"] as String
 		println("API Key: \(key)")
 	}
 })
 // Update an existing index specific API key valid for 300 seconds, with a rate limit of 100 calls per hour per IP and a maximum of 20 hits
-client.updateUserKey("myKey", withACL: ["search"], andValidity: 300, maxQueriesPerIPPerHour: 100, maxHitsPerQuery: 20, block: { (JSON, error) -> Void in
+client.updateUserKey("myKey", withACL: ["search"], andValidity: 300, maxQueriesPerIPPerHour: 100, maxHitsPerQuery: 20, block: { (content, error) -> Void in
 	if error == nil {
-		let key = JSON!["key"] as String
+		let key = content!["key"] as String
 		println("API Key: \(key)")
 	}
 })

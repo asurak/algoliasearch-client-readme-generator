@@ -1,10 +1,10 @@
 ```swift
 // Rename MyNewIndex in MyIndex (and overwrite it)
-client.moveIndex("MyNewIndex", dstIndexName: "MyIndex", block: { (JSON, error) -> Void in
+client.moveIndex("MyNewIndex", dstIndexName: "MyIndex", block: { (content, error) -> Void in
 	if let error = error {
 		println("Move failure: \(error)")
 	} else {
-		println("Move success: \(JSON)")
+		println("Move success: \(content)")
 	}
 })
 ```

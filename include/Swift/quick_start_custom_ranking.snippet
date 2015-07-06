@@ -1,7 +1,7 @@
 ```swift
 let customRanking = ["desc(followers)"]
 let settings = ["customRanking": customRanking]
-index.setSettings(settings, block: { (JSON, error) -> Void in
+index.setSettings(settings, block: { (content, error) -> Void in
 	if let error = error {
 		println("Error when applying settings: \(error)")
 	}

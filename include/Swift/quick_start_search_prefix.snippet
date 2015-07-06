@@ -1,13 +1,13 @@
 ```swift
-index.search(Query(query: "or"), block: { (JSON, error) -> Void in
+index.search(Query(query: "or"), block: { (content, error) -> Void in
 	if error == nil {
-		println("Result: \(JSON)")
+		println("Result: \(content)")
 	}
 })
 
-index.search(Query(query: "jim"), block: { (JSON, error) -> Void in
+index.search(Query(query: "jim"), block: { (content, error) -> Void in
 	if error == nil {
-		println("Result: \(JSON)")
+		println("Result: \(content)")
 	}
 })
 ```
