@@ -104,6 +104,7 @@ Table of Contents
 1. [Add a new object](#add-a-new-object-to-the-index)
 1. [Update an object](#update-an-existing-object-in-the-index)
 1. [Search](#search)
+<% if swift? || objc? %>1. [Search cache](#search-cache)<% end %>
 1. [Multiple queries](#multiple-queries)
 1. [Get an object](#get-an-object)
 1. [Delete an object](#delete-an-object)
@@ -571,6 +572,21 @@ The server response will look like:
   "params": "query=jimmie+paint&attributesToRetrieve=firstname,lastname&hitsPerPage=50"
 }
 ```
+
+<% if swift? || objc? %>
+Search cache
+------------
+
+You can easily cache the results of the search queries by enabling the search cache.
+The results will be cached during a defined amount of time (default: 2 min).
+There is no pre-caching mechanism but you can simulated it by making search queries.
+
+By default the cache is disabled.
+
+<%= snippet("search_cache") %>
+
+<% end %>
+
 <% if !cmd? %>
 
 Multiple queries
