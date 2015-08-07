@@ -4,5 +4,5 @@ array.add(new JSONObject().put("action". "addObject").put("indexName", "index1")
 	.put("body", new JSONObject().put("firstname", "Jimmie").put("lastname", "Barninger")));
 array.add(new JSONObject().put("action". "addObject").put("indexName", "index2")
 	.put("body", new JSONObject().put("firstname", "Warren").put("lastname", "Speach")));
-client.batch(array);
+client.batchASync(new JSONArray(array), this);
 ```

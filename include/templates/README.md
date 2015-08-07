@@ -51,8 +51,8 @@ Our command line API client is a small wrapper around CURL to make it easier to 
 Our <%= @name %> client lets you easily use the [Algolia Search API](https://www.algolia.com/doc/rest_api) from your <%= puts({'C#' => 'App', 'Java' => "Java Application", "Android" => "Android Application", 'Objective-C' => "iOS & OS X applications"}, "backend") %>. It wraps the [Algolia Search REST API](http://www.algolia.com/doc/rest_api).
 <% end -%>
 
-<% if csharp? -%>Compatible with .NET 4.0, .NET 4.5, ASP.NET vNext 1.0, Mono 4.5, Windows 8, Windows 8.1, Windows Phone 8.1, Xamarin iOS, and Xamarin Android.<% end -%>
-<% if android? -%>It is based on our [Java API client](https://github.com/algolia/algoliasearch-client-java) and  includes an easy to use asynchronous API to avoid networks calls on UI Thread.<% end -%>
+<% if csharp? %>Compatible with .NET 4.0, .NET 4.5, ASP.NET vNext 1.0, Mono 4.5, Windows 8, Windows 8.1, Windows Phone 8.1, Xamarin iOS, and Xamarin Android.<% end %>
+<% if android? %>It is based on our [Java API client](https://github.com/algolia/algoliasearch-client-java) and  includes an easy to use asynchronous API to avoid networks calls on UI Thread.<% end %>
 
 <%= import("build_status.info") if !cmd? %>
 
@@ -119,7 +119,9 @@ Table of Contents
 1. [Batch writes](#batch-writes)
 1. [Security / User API Keys](#security--user-api-keys)
 1. [Copy or rename an index](#copy-or-rename-an-index)
+<% if !android? -%>
 1. [Backup / Retrieve all index content](#backup--retrieve-of-all-index-content)
+<% end -%>
 1. [Logs](#logs)
 <% if ruby? %>1. [Mock](#mock)<% end %>
 
@@ -135,11 +137,6 @@ Setup
 Initialize the client with your Application ID and API Key. You can find them on [your Algolia account](http://www.algolia.com/users/edit):
 <% end %>
 
-<% if android? %>
- 1. Download the [latest algoliasearch-client-android-*.jar](https://github.com/algolia/algoliasearch-client-android/tree/master/dist) and add it to the lib folder of your project.
- 2. Initialize the client with your Application ID and API Key. You can find them on [your Algolia account](http://www.algolia.com/users/edit).
- 3. Make your Activity class implement the `IndexListener` interface to be able to use the asynchronous methods.
-<% end %>
 <%= snippet("setup") %>
 
 <% if ruby? -%>
@@ -823,11 +820,11 @@ Get the permissions of a given key:
 Delete an existing key:
 <%= snippet("security_delete_key") %>
 
-<% if !cmd? && !csharp? && !objc? && !swift? %>
+<% if !cmd? && !csharp? && !objc? && !swift? && !android? %>
 
 You may have a single index containing per user data. In that case, all records should be tagged with their associated user_id in order to add a `tagFilters=user_42` filter at query time to retrieve only what a user has access to. If you're using the [JavaScript client](http://github.com/algolia/algoliasearch-client-js), it will result in a security breach since the user is able to modify the `tagFilters` you've set by modifying the code from the browser. To keep using the JavaScript client (recommended for optimal latency) and target secured records, you can generate a secured API key from your backend:
 
-<%= snippet("generate_secured_api_key") if !csharp? && !objc? && !swift? %>
+<%= snippet("generate_secured_api_key") if !csharp? && !objc? && !swift? && !android? %>
 
 This public API key can then be used in your JavaScript code as follow:
 
@@ -849,7 +846,7 @@ index.search('something', function(err, content) {
 
 You can mix rate limits and secured API keys by setting an extra `user_token` attribute both at API key generation time and query time. When set, a unique user will be identified by her `IP + user_token` instead of only by her `IP`. This allows you to restrict a single user to performing a maximum of `N` API calls per hour, even if she shares her `IP` with another user.
 
-<%= snippet("generate_secured_api_key_user_token") if !csharp? && !objc? && !swift? %>
+<%= snippet("generate_secured_api_key_user_token") if !csharp? && !objc? && !swift? && !android? %>
 
 This public API key can then be used in your JavaScript code as follow:
 
@@ -910,6 +907,7 @@ The move command is particularly useful if you want to update a big index atomic
 
 <%= snippet("update_index") %>
 
+<% if !android? %>
 Backup / Retrieve of all index content
 -------------
 
@@ -949,6 +947,8 @@ You can browse the index:
 
 <%= snippet("backup_index") %>
 <% end -%>
+
+<% end %>
 
 Logs
 -------------

@@ -3,13 +3,11 @@
 //  - 1st query targets index `categories`
 //  - 2nd and 3rd queries target index `products`
 
-List<APIClient.IndexQuery> queries = new ArrayList<APIClient.IndexQuery>();
+List<IndexQuery> queries = new ArrayList<IndexQuery>();
 
-queries.add(new APIClient.IndexQuery("categories", new Query(myQueryString).setHitsPerPage(3)));
-queries.add(new APIClient.IndexQuery("products", new Query(myQueryString).setHitsPerPage(3).setTagFilters("promotion"));
-queries.add(new APIClient.IndexQuery("products", new Query(myQueryString).setHitsPerPage(10)));
+queries.add(new IndexQuery("categories", new Query(myQueryString).setHitsPerPage(3)));
+queries.add(new IndexQuery("products", new Query(myQueryString).setHitsPerPage(3).setTagFilters("promotion"));
+queries.add(new IndexQuery("products", new Query(myQueryString).setHitsPerPage(10)));
 
-JSONObject res = client.multipleQueries(queries);
-
-System.out.println(res.getJSONArray("results").toString())
+client.multipleQueriesASync(queries, this);
 ```

@@ -1,4 +1,3 @@
 ```java
-JSONObject res = index.addObject(new JSONObject().put("firstname", "Jimmie").put("lastname", "Barninger"));
-index.waitTask(String.valueOf(res.getLong("taskID")));
+index.addObjectASync(new JSONObject().put("firstname", "Jimmie").put("lastname", "Barninger"), this);
 ```

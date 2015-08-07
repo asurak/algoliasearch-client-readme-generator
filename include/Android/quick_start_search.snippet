@@ -9,10 +9,10 @@ index.searchASync(new Query("california paint"), this);
 index.searchASync(new Query("jimmie paint"), this);
 ```
 
-You will get search results in the searchResult callback of your Activity:
+You will get search results in the `searchResult` methods of `SearchListener`:
 ```java
 @Override
 public void searchResult(Index index, Query query, JSONObject results) {
-  Log.d("search", results.toString());
+    Log.d("search", results.toString());
 }
 ```

@@ -1,8 +1,4 @@
 ```java
 // Creates a new global API key that can only perform search actions
-JSONObject res = client.addUserKey(Arrays.asList("search"));
-Log.d("debug", "Key: " + res.getString("key"));
-// Creates a new API key that can only perform search action on this index
-JSONObject res = index.addUserKey(Arrays.asList("search"));
-Log.d("debug", "Key: " + res.getString("key"));
+client.addUserKeyASync(new JSONObject("{\"acl\": [\"search\"]}"), this);
 ```

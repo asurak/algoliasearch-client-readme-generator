@@ -2,12 +2,13 @@
 index.getSettingsASync(this);
 ```
 
-You will get the index settings in the getSettingsResult callbacl of IndexListener:
+You will get the index settings in the `settingsResult` methods of SettingsListener:
+
 ```java
 @Override
-public void getSettingsResult(Index index, JSONObject result) {
-  Log.d("debug", result.toString());    
-}  
+public void settingsResult(Index index, TaskParams.Settings context, JSONObject results) {
+    Log.d("debug", results.toString());
+}
 ```
 
 ```java

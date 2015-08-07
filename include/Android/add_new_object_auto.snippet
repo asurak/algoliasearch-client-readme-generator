@@ -4,10 +4,11 @@ index.addObjectASync(new JSONObject()
       .put("lastname", "Barninger"), this);
 ```
 
-You will get the assigned objectID in the `addObjectResult` callback of the IndexListener interface:
+You will get the assigned objectID in the `indexingResult` callback of the IndexingListener interface:
+
 ```java
 @Override
-public void addObjectResult(Index index, String object, JSONObject result) {
-  Log.d("debug", result.getString("objectID"));
+public void indexingResult(Index index, TaskParams.Indexing context, JSONObject result) {
+  Log.d("debug", result.optString("objectID"));
 }
 ```

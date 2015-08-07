@@ -1,6 +1,4 @@
 ```java
-// Get last 10 log entries
-client.getLogs();
-// Get last 100 log entries
-client.getLogs(0, 100);
+// Get last 100 error log entries
+client.getLogsASync(0, 100, LogType.LOG_ERROR, this);
 ```

@@ -1,6 +1,6 @@
 ```java
 // Rename MyIndex in MyIndexNewName
-client.moveIndex("MyIndex", "MyIndexNewName");
+client.moveIndexASync("MyIndex", "MyIndexNewName", this);
 // Copy MyIndex in MyIndexCopy
-client.copyIndex("MyIndex", "MyIndexCopy");
+client.copyIndexASync("MyIndex", "MyIndexCopy", this);
 ```

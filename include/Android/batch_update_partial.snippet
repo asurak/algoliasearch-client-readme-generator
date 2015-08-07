@@ -2,5 +2,5 @@
 List<JSONObject> array = new ArrayList<JSONObject>();
 array.add(new JSONObject().put("firstname", "Jimmie").put("objectID", "SFO"));
 array.add(new JSONObject().put("firstname", "Warren").put("objectID", "LA"));
-index.partialUpdateObjects(array);
+index.partialUpdateObjectsASync(new JSONArray(array), this);
 ```
