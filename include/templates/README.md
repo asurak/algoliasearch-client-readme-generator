@@ -234,15 +234,16 @@ Client options
 In most situations, there is no need to tune the options. We provide this list to be
 transparent with our users.
 
-- `timeout` timeout for requests to our servers
+- `timeout` (Number) timeout for requests to our servers, in milliseconds
   + in Node.js this is an inactivity timeout. default to 15s
   + in the browser, this is a global timeout. default to 2s (incremental)
-- `protocol` protocol to use when communicating with algolia
+- `protocol` (String) protocol to use when communicating with algolia
   + in the browser, we use the page protocol by default
   + in Node.js it's https by default
-- `hosts.read` array of read hosts to use to call Algolia servers, computed automatically
-- `hosts.write` array of write hosts to use to call Algolia servers, computed automatically
-- `httpAgent` <sup>node-only</sup> [Node.js httpAgent](https://nodejs.org/api/http.html#http_class_http_agent) to use when communicating with Algolia servers.
+  + possible values: 'http:', 'https:'
+- `hosts.read` ([String]) array of read hosts to use to call Algolia servers, computed automatically
+- `hosts.write` ([String]) array of write hosts to use to call Algolia servers, computed automatically
+- `httpAgent` ([HttpAgent](https://nodejs.org/api/http.html#http_class_http_agent)) <sup>node-only</sup> Node.js httpAgent instance to use when communicating with Algolia servers.
 
 To pass an option, use:
 
