@@ -20,6 +20,18 @@ Usage
 ------
 
 ```
+# Update all subrepos to the latest master
+$ ./tools/commit.sh --prepare
+
+# Update readmes of all subrepos and see what changed
+$ ./tools/commit.sh --show
+
+# Revert the changes in readme in all subrepo, revert to latest commit
+$ ./tools/commit.sh --revert
+
+# Update readmes of all subrepos and push them
+$ ./tools/commit.sh --push
+
+# Update readmes of all subrepos
 $ ./doc-generator.rb ./config.json
-$ ls -l ../algoliasearch*/README.md
 ```
