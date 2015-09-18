@@ -1,12 +1,12 @@
 #! /bin/sh
 
-cd `dirname $0`/..
+cd "$(dirname "$0"/..)"
 
 if [ "$#" = "1" -a "$1" = "--revert" ] ; then
   echo "ALL README.md FILES ARE GOING TO BE RESET, HIT CTRL-C TO STOP."
   sleep 10
   for dir in ../algoliasearch-client-*; do
-    cd $dir
+    cd "$dir"
     echo "$dir"
     git reset ^HEAD
   done
@@ -17,7 +17,7 @@ if [ "$#" = "1" -a "$1" = "--show" ] ; then
   echo "Generate README.mds"
   ruby ./doc-generator.rb config.json
   for dir in ../algoliasearch-client-*; do
-    cd $dir
+    cd "$dir"
     echo "$dir"
     git diff README.md
   done
@@ -28,7 +28,7 @@ if [ "$#" = "1" -a "$1" = "--prepare" ] ; then
   echo "prepare repos to update README.mds"
   ruby ./doc-generator.rb config.json
   for dir in ../algoliasearch-client-*; do
-    cd $dir
+    cd "$dir"
     echo "$dir"
     git checkout README.md; git pull -r
   done
@@ -51,7 +51,7 @@ fi
 for dir in ../algoliasearch-client-*; do
   echo "$dir/README.md"
   sleep 1
-  cd $dir
+  cd "$dir"
   git diff README.md
   git commit README.md
   git pull -r
