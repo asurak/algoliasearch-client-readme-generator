@@ -15,7 +15,7 @@ fi
 
 if [ "$#" = "1" -a "$1" = "--show" ] ; then
   echo "Generate README.mds"
-  ./doc-generator.rb config.json
+  ruby ./doc-generator.rb config.json
   for dir in ../algoliasearch-client-*; do
     cd $dir
     echo "$dir"
@@ -26,7 +26,7 @@ fi
 
 if [ "$#" = "1" -a "$1" = "--prepare" ] ; then
   echo "prepare repos to update README.mds"
-  ./doc-generator.rb config.json
+  ruby ./doc-generator.rb config.json
   for dir in ../algoliasearch-client-*; do
     cd $dir
     echo "$dir"
@@ -42,7 +42,7 @@ if [ "$#" != "1" -o "$1" != "--push" ] ; then
 fi
 
 echo "Generate README.mds"
-./doc-generator.rb config.json
+ruby ./doc-generator.rb config.json
 if [ "$?" != "0" ] ; then
   echo "Generation failed: stop"
   exit 1
