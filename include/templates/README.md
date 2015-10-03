@@ -540,6 +540,16 @@ You can also use a string array encoding (for example `numericFilters: ["price>1
  * **<%= puts({'C#' => 'SetFacets', 'Java' => 'setFacets', 'Android' => 'setFacets'}, "facets") %>**: List of object attributes that you want to use for faceting. <br/>Attributes are separated with a comma. For example, `"category,author"`. You can also use JSON string array encoding. For example, `["category","author"]`. Only the attributes that have been added in **attributesForFaceting** index setting can be used in this parameter. You can also use `*` to perform faceting on all attributes specified in **attributesForFaceting**.
  * **<%= puts({'C#' => 'SetMaxValuesPerFacet', 'Java' => 'setMaxValuesPerFacet', 'Android' => 'setMaxValuesPerFacet'}, "maxValuesPerFacet") %>**: Limit the number of facet values returned for each facet. For example, `maxValuesPerFacet=10` will retrieve a maximum of 10 values per facet.
 
+#### UNIFIED FILTER PARAMETER (SQL LIKE)
+ * **<%= puts({'C#' => 'SetFilters', 'Java' => 'setFilters', 'Android' => 'setFilters'}, "filters") %>**: Filter the query with numeric, facet or/and tag filters. The syntax is a SQL like syntax, you can use the OR and AND keywords. The syntax for the underlying numeric, facet and tag filters is the same than in the other filters:
+  `available=1 AND (category:Book OR NOT category:Ebook) AND public`
+  `date: 1441745506 TO 1441755506 AND inStock > 0 AND author:"John Doe"`
+The list of keywords is:
+ **OR**: create a disjunctive filter between two filters.
+ **AND**: create a conjunctive filter between two filters.
+ **TO**: used to specify a range for a numeric filter.
+ **NOT**: used to negate a filter. The syntax with the ‘-‘ isn’t allowed.
+
 #### Distinct Parameter
  * **<%= puts({'C#' => 'EnableDistinct', 'Java' => 'setDistinct', 'Android' => 'setDistinct'}, "distinct") %>**: If set to <%= puts({'C#' => "YES", 'Java' => 'true', 'Android' => 'true', 'Objective-C' => 'YES'}, "1") %>, enables the distinct feature, disabled by default, if the `attributeForDistinct` index setting is set. This feature is similar to the SQL "distinct" keyword. When enabled in a query with the `distinct=1` parameter, all hits containing a duplicate value for the attributeForDistinct attribute are removed from results. For example, if the chosen attribute is `show_name` and several hits have the same value for `show_name`, then only the best one is kept and the others are removed.
 
