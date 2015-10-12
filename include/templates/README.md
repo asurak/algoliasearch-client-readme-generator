@@ -690,7 +690,8 @@ You can decide to have the same priority for two attributes by passing them in t
  * **placeholders**: (hash of array of words). This is an advanced use case to define a token substitutable by a list of words without having the original token searchable. It is defined by a hash associating placeholders to lists of substitutable words. For example, `"placeholders": { "<streetnumber>": ["1", "2", "3", ..., "9999"]}` would allow it to be able to match all street numbers. We use the `< >` tag syntax to define placeholders in an attribute. For example:
   * Push a record with the placeholder: `{ "name" : "Apple Store", "address" : "&lt;streetnumber&gt; Opera street, Paris" }`.
   * Configure the placeholder in your index settings: `"placeholders": { "<streetnumber>" : ["1", "2", "3", "4", "5", ... ], ... }`.
- * **disableTypoToleranceOn**: (string array) Specify a list of words on which automatic typo tolerance will be disabled.
+ * **disableTypoToleranceOnWords**: (string array) Specify a list of words on which automatic typo tolerance will be disabled.
+ * **disableTypoToleranceOnAttributes**: (string array) List of attributes on which you want to disable typo tolerance (must be a subset of the `attributesToIndex` index setting). By default the list is empty.
  * **altCorrections**: (object array) Specify alternative corrections that you want to consider. Each alternative correction is described by an object containing three attributes:
   * **word**: The word to correct.
   * **correction**: The corrected word.
