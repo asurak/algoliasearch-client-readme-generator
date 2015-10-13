@@ -4,19 +4,6 @@
 # Algolia Search API Client for <%= !objc? ? @name : "iOS and OS X" %>
 <% end -%>
 
-<% if js? -%>
-
-**&lt;New JavaScript clients&gt;**
-
-In April 2015, we released a new JavaScript client (the one you are looking at) able to work in Node.js and the browser.
-
-If you were using our browser version (V2), [read the migration guide](https://github.com/algolia/algoliasearch-client-js/wiki/Migration-guide-from-2.x.x-to-3.x.x)
-
-If you were using our Node.js version (V1, npm `algolia-search`), [read the migration guide](https://github.com/algolia/algoliasearch-client-js/wiki/Node.js-v1.x.x-migration-guide)
-
-**&lt;/New JavaScript clients&gt;**
-<% end -%>
-
 <% if swift? -%>
 **&lt;Welcome Objective-C developers&gt;**
 
@@ -98,6 +85,8 @@ Table of Contents
 <% end -%>
 1. [Online documentation](#documentation)
 1. [Tutorials](#tutorials)
+<% if js? -%>1. [Old JavaScript clients](#old-javascript-clients)<% end -%>
+
 
 **Commands Reference**
 
@@ -355,6 +344,17 @@ Check out our [tutorials](http://www.algolia.com/doc/tutorials):
  * [Instant search result pages](http://www.algolia.com/doc/tutorials/instant-search)
 
 <%#    ************************** API CLIENT REFERENCE JS ********************************** %>
+
+<% if js? -%>
+Old JavaScript clients
+======================
+
+In April 2015, we released a the V3 of our JavaScript client (the one you are looking at) able to work in Node.js and the browser.
+
+If you were using our browser version (V2), [read the migration guide](https://github.com/algolia/algoliasearch-client-js/wiki/Migration-guide-from-2.x.x-to-3.x.x)
+
+If you were using our Node.js version (V1, npm `algolia-search`), [read the migration guide](https://github.com/algolia/algoliasearch-client-js/wiki/Node.js-v1.x.x-migration-guide)
+<% end -%>
 
 Commands Reference
 ==================
