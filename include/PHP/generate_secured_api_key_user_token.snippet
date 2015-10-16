@@ -1,5 +1,5 @@
 ```php
 // generate a public API key for user 42. Here, records are tagged with:
 //  - 'user_XXXX' if they are visible by user XXXX
-$public_key = $client->generateSecuredApiKey('YourRateLimitedApiKey', 'tagFilters=user_42', 'user_42');
+$public_key = $client->generateSecuredApiKey('YourRateLimitedApiKey', array('tagFilters' => 'user_42', 'userToken' => 'user_42'));
 ```
