@@ -840,17 +840,16 @@ Get the permissions of a given key:
 Delete an existing key:
 <%= snippet("security_delete_key") %>
 
-<% if !cmd? && !csharp? && !objc? && !swift? && !android? %>
+<% if !cmd? && !objc? && !swift? && !android? %>
 
 You may have a single index containing per user data. In that case, all records should be tagged with their associated user_id in order to add a `tagFilters=user_42` filter at query time to retrieve only what a user has access to. If you're using the [JavaScript client](http://github.com/algolia/algoliasearch-client-js), it will result in a security breach since the user is able to modify the `tagFilters` you've set by modifying the code from the browser. To keep using the JavaScript client (recommended for optimal latency) and target secured records, you can generate a secured API key from your backend:
 
-<%= snippet("generate_secured_api_key") if !csharp? && !objc? && !swift? && !android? %>
+<%= snippet("generate_secured_api_key") if !objc? && !swift? && !android? %>
 
 This public API key can then be used in your JavaScript code as follow:
 
 ```js
 var client = algoliasearch('YourApplicationID', '<%%= public_api_key %>');
-client.setExtraHeader('X-Algolia-QueryParameters', 'tagFilters=user_42'); // must be same than those used at generation-time
 
 var index = client.initIndex('indexName')
 
@@ -864,21 +863,15 @@ index.search('something', function(err, content) {
 });
 ```
 
-You can mix rate limits and secured API keys by setting an extra `user_token` attribute both at API key generation time and query time. When set, a unique user will be identified by her `IP + user_token` instead of only by her `IP`. This allows you to restrict a single user to performing a maximum of `N` API calls per hour, even if she shares her `IP` with another user.
+You can mix rate limits and secured API keys by setting a `userToken` query parameter at API key generation time. When set, a unique user will be identified by her `IP + user_token` instead of only by her `IP`. This allows you to restrict a single user to performing a maximum of `N` API calls per hour, even if she shares her `IP` with another user.
 
-<%= snippet("generate_secured_api_key_user_token") if !csharp? && !objc? && !swift? && !android? %>
+<%= snippet("generate_secured_api_key_user_token") if !objc? && !swift? && !android? %>
 
 This public API key can then be used in your JavaScript code as follow:
 
 ```js
 var client = algoliasearch('YourApplicationID', '<%%= public_api_key %>');
 
-// must be same than those used at generation-time
-client.setExtraHeader('X-Algolia-QueryParameters', 'tagFilters=user_42');
-
-// must be same than the one used at generation-time
-client.setUserToken('user_42');
-
 var index = client.initIndex('indexName')
 
 index.search('another query', function(err, content) {
@@ -890,27 +883,6 @@ index.search('another query', function(err, content) {
   console.log(content);
 });
 ```
-
-You can also generate secured API keys to limit the usage of a key to a referer. The generation use the same function than the Per user restriction. This public API key can be used in your JavaScript code as follow:
-
-```js
-var client = algoliasearch('YourApplicationID', '<%%= public_api_key %>');
-
-// must be same than those used at generation-time
-client.setExtraHeader('X-Algolia-AllowedReferer', 'algolia.com/*');
-
-var index = client.initIndex('indexName')
-
-index.search('another query', function(err, content) {
-  if (err) {
-    console.error(err);
-    return;
-  }
-
-  console.log(content);
-});
-```
-
 <% end %>
 
 Copy or rename an index
