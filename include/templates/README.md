@@ -554,6 +554,14 @@ The list of keywords is:
  **TO**: used to specify a range for a numeric filter.
  **NOT**: used to negate a filter. The syntax with the ‘-‘ isn’t allowed.
 
+ *Note*: To specify a value with spaces or with a value equal to a keyword, it's possible to add quotes.
+
+ **Warning:**
+  * Like for the other filter for performance reason, it's not possible to have FILTER1 OR (FILTER2 AND FILTER3).
+  * It's not possible to mix different category of filter inside a OR like num=3 OR tag1 OR facet:value
+  * It's not possible to negate an group, it's only possible to negate a filters:  NOT(FILTER1 OR (FILTER2) is not allowed.
+
+
 #### Distinct Parameter
  * **<%= puts({'C#' => 'EnableDistinct', 'Java' => 'setDistinct', 'Android' => 'setDistinct'}, "distinct") %>**: If set to <%= puts({'C#' => "YES", 'Java' => 'true', 'Android' => 'true', 'Objective-C' => 'YES'}, "1") %>, enables the distinct feature, disabled by default, if the `attributeForDistinct` index setting is set. This feature is similar to the SQL "distinct" keyword. When enabled in a query with the `distinct=1` parameter, all hits containing a duplicate value for the attributeForDistinct attribute are removed from results. For example, if the chosen attribute is `show_name` and several hits have the same value for `show_name`, then only the best one is kept and the others are removed.
 
