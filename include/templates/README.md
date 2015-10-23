@@ -46,9 +46,7 @@ Our <%= @name %> client lets you easily use the [Algolia Search API](https://www
 <% if js? -%>
 The JavaScript client lets you use the [Algolia Search API](https://www.algolia.com/doc/rest_api) on the frontend (browsers) or on the backend (Node.js) with the same API.
 
-We support callbacks and promises.
-
-**Most of the time you should do your indexing on the backend with Node.js and your search experience in the browser by speaking directly with Algolia servers. So that your admin keys will not leak on the internet and your users get the best performance**
+The backend (Node.js) API can be used to index your data using your Algolia admin API keys.
 
 Our JavaScript library is [UMD](https://github.com/umdjs/umd) compatible, you can
 use it with any module loader.
