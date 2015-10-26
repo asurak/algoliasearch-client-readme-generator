@@ -934,11 +934,11 @@ Backup / Retrieve of all index content
 The `search` method cannot return more than 1,000 results. If you need to
 retrieve all the content of your index (for backup, SEO purposes or for running
 a script on it), you should use the `browse` method instead. This method lets
-your retrieve up to 1,000 results per call. 
+you retrieve objects beyond the 1,000 limit.
 
-This method is optimized for speed, so several features are disabled (including
-distinct, typo-tolerance, word proximity, geo distance and number of matched
-words). Results are still returned ranked by attributes and custom ranking.
+This method is optimized for speed. To make it fast, distinct, typo-tolerance,
+word proximity, geo distance and number of matched words are disabled. Results
+are still returned ranked by attributes and custom ranking.
 
 <% if !ruby? -%>
 <%# Ruby has a nice browse method that hides the cursor, so no need to talk about it %>
