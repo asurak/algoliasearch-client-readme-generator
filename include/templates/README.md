@@ -932,41 +932,35 @@ The move command is particularly useful if you want to update a big index atomic
 Backup / Retrieve of all index content
 -------------
 
+The `search` method cannot return more than 1,000 results. If you need to
+retrieve all the content of your index (for backup, SEO purposes or for running
+a script on it), you should use the `browse` method instead. This method lets
+you retrieve objects beyond the 1,000 limit.
+
+This method is optimized for speed. To make it fast, distinct, typo-tolerance,
+word proximity, geo distance and number of matched words are disabled. Results
+are still returned ranked by attributes and custom ranking.
+
+<% if !ruby? -%>
+<%# Ruby has a nice browse method that hides the cursor, so no need to talk about it %>
+It will return a `cursor` alongside your data, that you can then use to retrieve
+the next chunk of your records. 
+
+You can specify custom parameters (like `page` or `hitsPerPage`) on your first
+`browse` call, and these parameters will then be included in the `cursor`. Note
+that it is not possible to access records beyond the 1,000th on the first call.
+<% end -%>
+
+Example:
+
+<%= snippet("backup_index") %>
+
 <% if js? -%>
-You can retrieve all index content by using the browseAll() method:
+You can also use the `browseAll` method that will crawl the whole index and emit
+events whenever a new chunk of records is fetched.
 
-<%= snippet("backup_index") %>
+<%= snippet("backup_index_browse_all") %>
 
-You can also use the `browse(query, queryParameters)` and `browseFrom(browseCursor)` methods to programmatically browse your index content:
-
-```js
-index.browse('jazz', function browseDone(err, content) {
-  if (err) {
-    throw err;
-  }
-
-  console.log('We are at page %d on a total of %d pages, with %d hits.', content.page, content.nbPages, content.hits.length);
-
-  if (content.cursor) {
-    index.browseFrom(content.cursor, function browseFromDone(err, content) {
-      if (err) {
-        throw err;
-      }
-
-      console.log('We are at page %d on a total of %d pages, with %d hits.', content.page, content.nbPages, content.hits.length);
-    });
-  }
-});
-```
-
-<% else -%>
-You can retrieve all index content for backup purposes or for SEO using the browse method.
-This method can retrieve up to 1,000 objects per call and supports full text search and filters but the distinct feature is not available
-Unlike the search method, the sort by typo, proximity, geo distance and matched words is not applied, the hits are only sorted by numeric attributes specified in the ranking and the custom ranking.
-
-You can browse the index:
-
-<%= snippet("backup_index") %>
 <% end -%>
 
 <% end %>
