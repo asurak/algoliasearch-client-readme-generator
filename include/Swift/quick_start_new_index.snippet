@@ -4,6 +4,8 @@ Without any prior configuration, you can start indexing [500 contacts](https://g
 let jsonPath = NSBundle.mainBundle().pathForResource("contacts", ofType: "json")
 let jsonData = NSData.dataWithContentsOfMappedFile("jsonPath")
 let dict = NScontentSerialization.contentObjectWithData(jsonData, options: 0, error: nil)
+
 // Load all objects of json file in an index named "contacts"
+let index = client.getIndex("contacts");
 index.addObjects(dict["objects"], block: nil)
 ```
