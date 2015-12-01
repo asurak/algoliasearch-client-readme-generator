@@ -1,0 +1,10 @@
+```scala
+val indexing: Future[Indexing] = client.execute {
+    index into "contacts" `object` Contact("Jimmie", "Barninger", 93, "California Paint")
+}
+
+indexing onComplete {
+    case Success(indexing) => println(indexing.objectID)
+    case Failure(e) =>  println("An error has occured: " + e.getMessage)
+}
+```

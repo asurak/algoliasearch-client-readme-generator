@@ -1,0 +1,13 @@
+```scala
+// search by firstname
+client.execute { search into "contacts" query "jimmie" }
+
+// search a firstname with typo
+client.execute { search into "contacts" query "jimie" }
+
+// search for a company
+client.execute { search into "contacts" query "california paint" }
+
+// search for a firstname & company
+client.execute { search into "contacts" query "jimmie paint" }
+```

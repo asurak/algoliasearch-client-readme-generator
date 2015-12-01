@@ -28,6 +28,8 @@ class Language
       'go'
     elsif swift?
       'swift'
+    elsif scala?
+      'scala'
     else
       nil
     end
@@ -93,6 +95,10 @@ class Language
 
   def swift?
     name == "Swift"
+  end
+
+  def scala?
+    name == "Scala"
   end
 
   def get_binding
