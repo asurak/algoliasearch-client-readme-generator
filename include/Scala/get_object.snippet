@@ -1,0 +1,13 @@
+```scala
+// Retrieves all attributes
+get objectId "myId" from "index"
+
+//or
+
+get from "index" objectId "myId"
+```
+
+You can get a case object by:
+```scala
+(get / "index" / "myId").map(_.as[Contact])
+```

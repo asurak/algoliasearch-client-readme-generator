@@ -1,0 +1,23 @@
+```scala
+client.execute {
+	batch(
+  	index into "index1" `object` Contact("Jimmie", "Barninger")
+  	index into "index1" `object` Contact("Warren", "Speach")
+	)
+}
+
+//or
+
+client.execute {
+	index into "index1" `object` Seq(Contact("Jimmie", "Barninger"), Contact("Warren", "Speach"))
+}
+```
+
+/!\ This does not (yet)[https://github.com/algolia/algoliasearch-client-scala/issues/32] work. /!\
+```scala
+client.execute {
+	batch(
+  	index into "test1" objects Seq(Contact("Jimmie", "Barninger"), Contact("Warren", "Speach"))
+	)
+}
+```

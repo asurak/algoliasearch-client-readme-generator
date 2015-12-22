@@ -81,6 +81,7 @@ Table of Contents
 1. [Proxy support](#proxy-support)
 1. [Keep-alive](#keep-alive)
 <% end -%>
+<% if scala? -%>1. [Philosophy of the scala client](#philosophy)<% end %> 
 1. [Online documentation](#documentation)
 1. [Tutorials](#tutorials)
 <% if js? -%>1. [Old JavaScript clients](#old-javascript-clients)<% end -%>
@@ -118,8 +119,13 @@ Setup
 -------------
 <% if cmd? %>To setup the command line client<% else %>To setup your project<% end %>, follow these steps:
 
-<% if java? %>If you're using Maven, add the following dependency to your pom file:
+<% if java? || scala? %>If you're using Maven, add the following dependency to your `pom.xml` file:
 <%= snippet("setup_maven") %>
+
+Initialize the client with your Application ID and API Key. You can find them on [your Algolia account](http://www.algolia.com/users/edit):
+<% end %>
+<% if scala? %>If you're using SBT, add the following dependency to your `build.sbt` file:
+<%= snippet("setup_sbt") %>
 
 Initialize the client with your Application ID and API Key. You can find them on [your Algolia account](http://www.algolia.com/users/edit):
 <% end %>
@@ -317,6 +323,89 @@ You should call this method when you are finished working with the AlgoliaSearch
 
 **Note: keep-alive is still always activated in browsers, this is a native behavior of browsers.**
 
+<% end %>
+
+<% if scala? -%>
+Philosophy
+==========
+
+DSL
+---
+
+The main goal of this client is to provide a human _accessible_ and _readable_ DSL for using Algolia search.
+
+The entry point of the DSL is the [`algolia.AlgoliaDSL` object](src/main/scala/algolia/AlgoliaDsl).
+This DSL is used in the `execute` method of [`algolia.AlgoliaClient`](src/main/scala/algolia/AlgoliaClient).
+
+As we want to provide human readable DSL, there is more than one way to use this DSL. For example, to get an object by its `objectID`:
+```scala
+client.execute { from index "index" objectId "myId" }
+
+//or
+
+client.execute { get / "index" / "myId" }
+```
+
+Future
+------
+
+The `execute` method always return a [`scala.concurrent.Future`](http://www.scala-lang.org/api/2.11.7/#scala.concurrent.Future). 
+Depending of the operation it will be parametrized by a `case class`. For example:
+```scala
+var future: Future[Search] = 
+    client.execute {
+        search into "index" query "a"
+    }
+```
+
+JSON as case class
+------------------
+Putting or getting objects from the API is wrapped into `case class` automatically by [json4s](http://json4s.org).
+
+If you want to get objects just search for it and unwrap the result:
+```scala
+case class Contact(firstname: String,
+                   lastname: String,
+                   followers: Int,
+                   compagny: String)
+
+var future: Future[Seq[Contact]] = 
+    client
+        .execute {
+            search into "index" query "a"
+        }
+        .map { search =>
+            search.as[Contact]
+        }
+```
+
+If you want to get the full results (with `_highlightResult`, etc.):
+```scala
+case class EnhanceContact(firstname: String,
+                          lastname: String,
+                          followers: Int,
+                          compagny: String,
+                          objectID: String,
+                          _highlightResult: Option[Map[String, HighlightResult]
+                          _snippetResult: Option[Map[String, SnippetResult]],
+                          _rankingInfo: Option[RankingInfo]) extends Hit
+
+var future: Future[Seq[EnhanceContact]] = 
+    client
+        .execute {
+            search into "index" query "a"
+        }
+        .map { search =>
+            search.asHit[EnhanceContact]
+        }
+```
+
+For indexing documents, just pass an instance of your `case class` to the DSL:
+```scala
+client.execute {
+    index into "contacts" `object` Contact("Jimmie", "Barninger", 93, "California Paint")
+}
+```
 <% end %>
 
 Documentation

@@ -32,6 +32,9 @@
     },
     "Go": {
       "outputDir": "../../algoliasearch-client-go"
+    },
+    "Scala": {
+      "outputDir": "../../algoliasearch-client-scala"
     }
   },
   "templateFiles": [

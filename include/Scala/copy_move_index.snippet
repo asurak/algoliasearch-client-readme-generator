@@ -1,0 +1,7 @@
+```scala
+// Rename MyIndex in MyIndexNewName
+client.execute { move index "MyIndex" to "MyIndexNewName" }
+
+// Copy MyIndex in MyIndexCopy
+client.execute { copy index "MyIndex" to "MyIndexNewName" }
+```

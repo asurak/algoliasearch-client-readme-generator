@@ -13,6 +13,7 @@ Algolia Search API Client README generator
  * [algoliasearch-client-csharp](https://github.com/algolia/algoliasearch-client-csharp)
  * [algoliasearch-client-objc](https://github.com/algolia/algoliasearch-client-objc)
  * [algoliasearch-client-swift](https://github.com/algolia/algoliasearch-client-swift)
+ * [algoliasearch-client-scala](https://github.com/algolia/algoliasearch-client-scala)
 
 That's probably not the repository you were looking for. For Algolia's REST API documentation, go to [algolia.com/doc/rest](http://algolia.com/doc/rest).
 
