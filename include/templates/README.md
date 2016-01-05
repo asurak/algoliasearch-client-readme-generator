@@ -751,7 +751,7 @@ You can delete all objects matching a single query with the following code. Inte
 Index Settings
 -------------
 
-You can retrieve all settings using the `<%= puts({ "JavaScript" => "getSettings", "PHP" => "getSettings", "Python" => "get_settings", "Ruby" => "get_settings", "Shell" => "settings", 'C#' => "GetSettings", 'Java' => 'getSettings', 'Android' => 'getSettings' , 'Objective-C' => 'getSettings', 'GO' => "GetSettings"}) %>` function. The result will contain the following attributes:
+You can retrieve all settings using the `<%= puts({ "JavaScript" => "getSettings", "PHP" => "getSettings", "Python" => "get_settings", "Ruby" => "get_settings", "Shell" => "settings", 'C#' => "GetSettings", 'Java' => 'getSettings', 'Android' => 'getSettings' , 'Objective-C' => 'getSettings', 'Go' => "GetSettings"}) %>` function. The result will contain the following attributes:
 
 
 #### Indexing parameters
@@ -835,7 +835,7 @@ You can easily retrieve settings or update them:
 
 List indices
 -------------
-You can list all your indices along with their associated information (number of entries, disk size, etc.) with the `<%= puts({ "JavaScript" => "listIndexes", "PHP" => "listIndexes", "Python" => "list_indexes", "Ruby" => "list_indexes", "Shell" => "indexes", "C#" => "listIndexes", "Java" => "listIndexes", "Android" => "listIndexes", "Objective-C" => "listIndexes", "GO" => "ListIndexes" }) %>` method:
+You can list all your indices along with their associated information (number of entries, disk size, etc.) with the `<%= puts({ "JavaScript" => "listIndexes", "PHP" => "listIndexes", "Python" => "list_indexes", "Ruby" => "list_indexes", "Shell" => "indexes", "C#" => "listIndexes", "Java" => "listIndexes", "Android" => "listIndexes", "Objective-C" => "listIndexes", "Go" => "ListIndexes" }) %>` method:
 
 <%= snippet("list_index") %>
 
@@ -876,10 +876,10 @@ Batch writes
 
 You may want to perform multiple operations with one API call to reduce latency.
 We expose four methods to perform batch operations:
- * `<%= puts({ "JavaScript" => "addObjects", "PHP" => "addObjects", "Python" => "add_objects", "Ruby" => "add_objects", "Shell" => "addObject", 'C#' => 'AddObjects', 'Java' => 'addObjects', 'Android' => 'addObjects', 'Objective-C' => 'addObjects', 'GO' => 'AddObjects' }) %>`: Add an array of objects using automatic `objectID` assignment.
- * `<%= puts({ "JavaScript" => "saveObjects", "PHP" => "saveObjects", "Python" => "save_objects", "Ruby" => "save_objects", "Shell" => "saveObject", 'C#' => 'SaveObjects', 'Java' => 'saveObjects', 'Android' => 'saveObjects', 'Objective-C' => 'saveObjects', 'GO' => 'UpdateObjects' }) %>`: Add or update an array of objects that contains an `objectID` attribute.
- * `<%= puts({ "JavaScript" => "deleteObjects", "PHP" => "deleteObjects", "Python" => "delete_objects", "Ruby" => "delete_objects", "Shell" => "deleteObject", 'C#' => 'DeleteObjects', 'Java' => 'deleteObjects', 'Android' => 'deleteObjects', 'Objective-C' => 'deleteObjects', 'GO' => "DeleteObjects" }) %>`: Delete an array of objectIDs.
- * `<%= puts({ "JavaScript" => "partialUpdateObjects", "PHP" => "partialUpdateObjects", "Python" => "partial_update_objects", "Ruby" => "partial_update_objects", "Shell" => "partialUpdate", 'C#' => "PartialUpdateObjects", 'Java' => 'partialUpdateObjects', 'Android' => 'partialUpdateObjects', 'Objective-C' => 'partialUpdateObjects', 'GO' => 'PartialUpdateObjects' }) %>`: Partially update an array of objects that contain an `objectID` attribute (only specified attributes will be updated).
+ * `<%= puts({ "JavaScript" => "addObjects", "PHP" => "addObjects", "Python" => "add_objects", "Ruby" => "add_objects", "Shell" => "addObject", 'C#' => 'AddObjects', 'Java' => 'addObjects', 'Android' => 'addObjects', 'Objective-C' => 'addObjects', 'Go' => 'AddObjects' }) %>`: Add an array of objects using automatic `objectID` assignment.
+ * `<%= puts({ "JavaScript" => "saveObjects", "PHP" => "saveObjects", "Python" => "save_objects", "Ruby" => "save_objects", "Shell" => "saveObject", 'C#' => 'SaveObjects', 'Java' => 'saveObjects', 'Android' => 'saveObjects', 'Objective-C' => 'saveObjects', 'Go' => 'UpdateObjects' }) %>`: Add or update an array of objects that contains an `objectID` attribute.
+ * `<%= puts({ "JavaScript" => "deleteObjects", "PHP" => "deleteObjects", "Python" => "delete_objects", "Ruby" => "delete_objects", "Shell" => "deleteObject", 'C#' => 'DeleteObjects', 'Java' => 'deleteObjects', 'Android' => 'deleteObjects', 'Objective-C' => 'deleteObjects', 'Go' => "DeleteObjects" }) %>`: Delete an array of objectIDs.
+ * `<%= puts({ "JavaScript" => "partialUpdateObjects", "PHP" => "partialUpdateObjects", "Python" => "partial_update_objects", "Ruby" => "partial_update_objects", "Shell" => "partialUpdate", 'C#' => "PartialUpdateObjects", 'Java' => 'partialUpdateObjects', 'Android' => 'partialUpdateObjects', 'Objective-C' => 'partialUpdateObjects', 'Go' => 'PartialUpdateObjects' }) %>`: Partially update an array of objects that contain an `objectID` attribute (only specified attributes will be updated).
 
 Example using automatic `objectID` assignment:
 <%= snippet("batch_new_objects") %>
