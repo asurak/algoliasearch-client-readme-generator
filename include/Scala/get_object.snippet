@@ -1,13 +1,20 @@
 ```scala
 // Retrieves all attributes
-get objectId "myId" from "index"
+client.execute {
+	get objectId "myId" from "index"
+}
 
 //or
-
-get from "index" objectId "myId"
+client.execute {
+	get from "index" objectId "myId"
+}
 ```
 
 You can get a case object by:
 ```scala
-(get / "index" / "myId").map(_.as[Contact])
+val result = client.execute {
+	get / "index" / "myId"
+}
+
+result.map(_.as[Contact])
 ```

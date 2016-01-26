@@ -1,3 +1,5 @@
 ```scala
-TODO
+val indexing: Future[Indexing] = client.execute {
+    index into "contacts" `object` Contact("Jimmie", "Barninger", 93, "California Paint")
+}
 ```

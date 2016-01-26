@@ -1,3 +1,10 @@
 ```scala
-TODO
+client.execute {
+	batch(
+    update attribute "firstname" value "Jimmie" ofObjectId "SFO" from "index",
+    update attribute "lastname" value "Barninger" ofObjectId "SFO" from "index",
+    update attribute "firstname" value "Warren" ofObjectId "LA" from "index",
+    update attribute "lastname" value "Speach" ofObjectId "LA" from "index"
+  )
+}
 ```

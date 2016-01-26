@@ -1,3 +1,14 @@
 ```scala
-TODO
+client.execute {
+	get from "index" objectIds Seq("myId", "myOtherId")
+}
+```
+
+You can get a case object by:
+```scala
+val result = client.execute {
+	get from "index" objectIds Seq("myId", "myOtherId")
+}
+
+result.map(_.as[Contact])
 ```
