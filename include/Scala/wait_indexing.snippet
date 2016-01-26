@@ -1,3 +1,6 @@
 ```scala
-TODO
+for {
+  t <- client.execute { index into "toto" `object` MyObject("test") }
+  r <- client.execute { waitFor task t from "toto" }
+} yield "indexing is done"
 ```
