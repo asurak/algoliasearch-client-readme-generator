@@ -602,6 +602,7 @@ You can use the following optional arguments<%= puts({"C#" => " on Query class",
  * **<%= puts({'C#' => 'SetAttributesToSnippet', 'Java' => 'setAttributesToSnippet', 'Android' => 'setAttributesToSnippet', 'Objective-C' => 'attributesToSnippet'}) %>**: The list of attributes to snippet alongside the number of words to return (syntax is `attributeName:nbWords`). By default, no snippet is computed.
  * **<%= puts({'C#' => 'GetRankingInfo', 'Java' => 'getRankingInfo', 'Android' => 'getRankingInfo', 'Objective-C' => 'getRankingInfo'}) %>**: If set to <%= puts({'Objective-C' => 'YES'}, "true") %>, the result hits will contain ranking information in the **_rankingInfo** attribute.
  * **<%= puts({'C#' => 'SetHighlightPreTag', 'Java' => 'setHighlightingTags', 'Android' => 'setHighlightingTags', 'Objective-C' => 'setHighlightingTags'}) %>**: (string, string) Specify the string that is inserted before the highlighted parts in the query result (defaults to "&lt;em&gt;") and the string that is inserted after the highlighted parts in the query result (defaults to "&lt;/em&gt;")..
+ * **<%= puts({'C#' => 'SetSnippetEllipsisText', 'Java' => 'setSnippetEllipsisText', 'Android' => 'setSnippetEllipsisText', 'Objective-C' => 'setSnippetEllipsisText'}) %>**: (string) String used as an ellipsis indicator when a snippet is truncated (defaults to empty).
 <% else %>
  * **attributesToRetrieve**: A string that contains the list of object attributes you want to retrieve in order to minimize the answer size.<br/> Attributes are separated with a comma (for example `"name,address"`). You can also use a string array encoding (for example `["name","address"]` ). By default, all attributes are retrieved. You can also use `*` to retrieve all values when an **attributesToRetrieve** setting is specified for your index.
  * **attributesToHighlight**: A string that contains the list of attributes you want to highlight according to the query. Attributes are separated by commas. You can also use a string array encoding (for example `["name","address"]`). If an attribute has no match for the query, the raw value is returned. By default all indexed text attributes are highlighted. You can use `*` if you want to highlight all textual attributes. Numerical attributes are not highlighted. A matchLevel is returned for each highlighted attribute and can contain:
@@ -612,6 +613,7 @@ You can use the following optional arguments<%= puts({"C#" => " on Query class",
  * **getRankingInfo**: If set to 1, the result hits will contain ranking information in the **_rankingInfo** attribute.
  * **highlightPreTag**: (string) Specify the string that is inserted before the highlighted parts in the query result (defaults to "&lt;em&gt;").
  * **highlightPostTag**: (string) Specify the string that is inserted after the highlighted parts in the query result (defaults to "&lt;/em&gt;").
+ * **snippetEllipsisText**: (string) String used as an ellipsis indicator when a snippet is truncated (defaults to empty).
  <% end %>
 
 #### Numeric Search Parameters
