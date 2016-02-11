@@ -8,5 +8,7 @@ $queries = array(
   array('indexName' => "products", 'query' => myQueryString, 'hitsPerPage' => 10)
 );
 
+$results = $client->multipleQueries($queries);
+
 var_dump(results["results"]):
 ```
