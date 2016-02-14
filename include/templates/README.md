@@ -33,9 +33,9 @@ The Objective-C API Client is still supported and updated.
 [Algolia Search](https://www.algolia.com) is a hosted full-text, numerical, and faceted search engine capable of delivering realtime results from the first keystroke.
 
 <% if cmd? -%>
-Our command line API client is a small wrapper around CURL to make it easier to use the [Algolia Search REST API](https://www.algolia.com/doc/rest_api).
+Our command line API client is a small wrapper around CURL to make it easier to use the [Algolia Search REST API](https://www.algolia.com/doc/rest).
 <% elsif !js? -%>
-Our <%= @name %> client lets you easily use the [Algolia Search API](https://www.algolia.com/doc/rest_api) from your <%= puts({'C#' => 'App', 'Java' => "Java Application", "Android" => "Android Application", 'Objective-C' => "iOS & OS X applications"}, "backend") %>. It wraps the [Algolia Search REST API](https://www.algolia.com/doc/rest_api).
+Our <%= @name %> client lets you easily use the [Algolia Search API](https://www.algolia.com/doc/rest) from your <%= puts({'C#' => 'App', 'Java' => "Java Application", "Android" => "Android Application", 'Objective-C' => "iOS & OS X applications"}, "backend") %>. It wraps the [Algolia Search REST API](https://www.algolia.com/doc/rest).
 <% end -%>
 
 <% if csharp? %>Compatible with .NET 4.0, .NET 4.5, ASP.NET vNext 1.0, Mono 4.5, Windows 8, Windows 8.1, Windows Phone 8.1, Xamarin iOS, and Xamarin Android.<% end %>
@@ -44,7 +44,7 @@ Our <%= @name %> client lets you easily use the [Algolia Search API](https://www
 <%= import("build_status.info") if !cmd? %>
 
 <% if js? -%>
-The JavaScript client lets you use the [Algolia Search API](https://www.algolia.com/doc/rest_api) on the frontend (browsers) or on the backend (Node.js) with the same API.
+The JavaScript client lets you use the [Algolia Search API](https://www.algolia.com/doc/rest) on the frontend (browsers) or on the backend (Node.js) with the same API.
 
 The backend (Node.js) API can be used to index your data using your Algolia admin API keys.
 
