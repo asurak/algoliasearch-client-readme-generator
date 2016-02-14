@@ -30,12 +30,12 @@ The Objective-C API Client is still supported and updated.
 
 <%#    ************************** INTRO ********************************** %>
 
-[Algolia Search](http://www.algolia.com) is a hosted full-text, numerical, and faceted search engine capable of delivering realtime results from the first keystroke.
+[Algolia Search](https://www.algolia.com) is a hosted full-text, numerical, and faceted search engine capable of delivering realtime results from the first keystroke.
 
 <% if cmd? -%>
-Our command line API client is a small wrapper around CURL to make it easier to use the [Algolia Search REST API](http://www.algolia.com/doc/rest_api).
+Our command line API client is a small wrapper around CURL to make it easier to use the [Algolia Search REST API](https://www.algolia.com/doc/rest).
 <% elsif !js? -%>
-Our <%= @name %> client lets you easily use the [Algolia Search API](https://www.algolia.com/doc/rest_api) from your <%= puts({'C#' => 'App', 'Java' => "Java Application", "Android" => "Android Application", 'Objective-C' => "iOS & OS X applications"}, "backend") %>. It wraps the [Algolia Search REST API](http://www.algolia.com/doc/rest_api).
+Our <%= @name %> client lets you easily use the [Algolia Search API](https://www.algolia.com/doc/rest) from your <%= puts({'C#' => 'App', 'Java' => "Java Application", "Android" => "Android Application", 'Objective-C' => "iOS & OS X applications"}, "backend") %>. It wraps the [Algolia Search REST API](https://www.algolia.com/doc/rest).
 <% end -%>
 
 <% if csharp? %>Compatible with .NET 4.0, .NET 4.5, ASP.NET vNext 1.0, Mono 4.5, Windows 8, Windows 8.1, Windows Phone 8.1, Xamarin iOS, and Xamarin Android.<% end %>
@@ -44,7 +44,7 @@ Our <%= @name %> client lets you easily use the [Algolia Search API](https://www
 <%= import("build_status.info") if !cmd? %>
 
 <% if js? -%>
-The JavaScript client lets you use the [Algolia Search API](https://www.algolia.com/doc/rest_api) on the frontend (browsers) or on the backend (Node.js) with the same API.
+The JavaScript client lets you use the [Algolia Search API](https://www.algolia.com/doc/rest) on the frontend (browsers) or on the backend (Node.js) with the same API.
 
 The backend (Node.js) API can be used to index your data using your Algolia admin API keys.
 
@@ -122,12 +122,12 @@ Setup
 <% if java? || scala? %>If you're using Maven, add the following dependency to your `pom.xml` file:
 <%= snippet("setup_maven") %>
 
-Initialize the client with your Application ID and API Key. You can find them on [your Algolia account](http://www.algolia.com/users/edit):
+Initialize the client with your Application ID and API Key. You can find them on [your Algolia account](https://www.algolia.com/users/edit):
 <% end %>
 <% if scala? %>If you're using SBT, add the following dependency to your `build.sbt` file:
 <%= snippet("setup_sbt") %>
 
-Initialize the client with your Application ID and API Key. You can find them on [your Algolia account](http://www.algolia.com/users/edit):
+Initialize the client with your Application ID and API Key. You can find them on [your Algolia account](https://www.algolia.com/users/edit):
 <% end %>
 
 <%= snippet("setup") %>
@@ -410,25 +410,25 @@ client.execute {
 
 Documentation
 ================
-Check our [online documentation](http://www.algolia.com/doc/guides/<%= @slug %>):
- * [Initial Import](http://www.algolia.com/doc/guides/<%= @slug %>#InitialImport)
- * [Ranking &amp; Relevance](http://www.algolia.com/doc/guides/<%= @slug %>#RankingRelevance)
- * [Indexing](http://www.algolia.com/doc/guides/<%= @slug %>#Indexing)
- * [Search](http://www.algolia.com/doc/guides/<%= @slug %>#Search)
- * [Sorting](http://www.algolia.com/doc/guides/<%= @slug %>#Sorting)
- * [Filtering](http://www.algolia.com/doc/guides/<%= @slug %>#Filtering)
- * [Faceting](http://www.algolia.com/doc/guides/<%= @slug %>#Faceting)
- * [Geo-Search](http://www.algolia.com/doc/guides/<%= @slug %>#Geo-Search)
- * [Security](http://www.algolia.com/doc/guides/<%= @slug %>#Security)
- * [REST API](http://www.algolia.com/doc/rest)
+Check our [online documentation](https://www.algolia.com/doc/<%= @slug %>):
+ * [Initial Import](https://www.algolia.com/doc/<%= @slug %>#initial-import)
+ * [Ranking &amp; Relevance](https://www.algolia.com/doc/<%= @slug %>#ranking--relevance)
+ * [Indexing](https://www.algolia.com/doc/<%= @slug %>#indexing)
+ * [Search](https://www.algolia.com/doc/<%= @slug %>#search)
+ * [Sorting](https://www.algolia.com/doc/<%= @slug %>#sorting)
+ * [Filtering](https://www.algolia.com/doc/<%= @slug %>#filtering)
+ * [Faceting](https://www.algolia.com/doc/<%= @slug %>#faceting)
+ * [Geo-Search](https://www.algolia.com/doc/<%= @slug %>#geo-search)
+ * [Security](https://www.algolia.com/doc/<%= @slug %>#security)
+ * [REST API](https://www.algolia.com/doc/rest)
 
 Tutorials
 ================
 
-Check out our [tutorials](http://www.algolia.com/doc/tutorials):
- * [Search bar with autocomplete menu](http://www.algolia.com/doc/tutorials/auto-complete)
- * [Search bar with multi category autocomplete menu](http://www.algolia.com/doc/tutorials/multi-auto-complete)
- * [Instant search result pages](http://www.algolia.com/doc/tutorials/instant-search)
+Check out our [tutorials](https://www.algolia.com/doc/tutorials):
+ * [Search bar with autocomplete menu](https://www.algolia.com/doc/tutorials/auto-complete)
+ * [Search bar with multi category autocomplete menu](https://www.algolia.com/doc/tutorials/multi-auto-complete)
+ * [Instant search result pages](https://www.algolia.com/doc/tutorials/instant-search)
 
 <%#    ************************** API CLIENT REFERENCE JS ********************************** %>
 
