@@ -1,4 +1,33 @@
 ```scala
-//Not yet implemented
+val result: Future[IndexSettings] = client.execute {
+  settings of "myIndex"
+}
 ```
 
+```scala
+val result: Future[Task] = client.execute {
+  changeSettings of "myIndex" `with` IndexSettings(
+    attributesToIndex = Some(Seq(AttributesToIndex.attribute("att1"), AttributesToIndex.attributes("att2", "att3"), AttributesToIndex.unordered("att4"))),
+    numericAttributesToIndex = Some(Seq(NumericAttributesToIndex.equalOnly("att5"))),
+    ranking = Some(Seq(
+      Ranking.typo,
+      Ranking.geo,
+      Ranking.words,
+      Ranking.proximity,
+      Ranking.attribute,
+      Ranking.exact,
+      Ranking.custom,
+      Ranking.asc("att6"),
+      Ranking.desc("att7")
+    )),
+    customRanking = Some(Seq(
+      CustomRanking.asc("att8"),
+      CustomRanking.desc("att9")
+    )),
+    synonyms = Some(Seq(Seq("black", "dark"), Seq("small", "little", "mini"))),
+    placeholders = Some(Map("<streetnumber>" -> Seq("1", "2", "3", "4", "5"))),
+    altCorrections = Some(Seq(AltCorrection("foot", "feet", 1))),
+    typoTolerance = Some(TypoTolerance.strict)
+  )
+}
+```
