@@ -1,3 +1,11 @@
 ```scala
-//Not yet implemented
+// Get last 10 log entries
+client.execute {
+	logs
+}
+
+// Get last 100 log entries
+client.execute {
+	logs lenght 100
+}
 ```
