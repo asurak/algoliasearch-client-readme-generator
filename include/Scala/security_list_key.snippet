@@ -1,3 +1,11 @@
 ```scala
-//Not yet implemented
+//global
+client.execute {
+	get allKeys
+}
+
+//index
+client.execute {
+	get allKeysFrom "myIndex"
+}
 ```

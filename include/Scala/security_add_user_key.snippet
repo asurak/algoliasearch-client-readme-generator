@@ -1,3 +1,23 @@
 ```scala
-//Not yet implemented
+// Creates a new global API key that is valid for 300 seconds
+val apiKey = ApiKey(
+	acl = Some(Seq(Acl.search)),
+	maxHitsPerQuery = Some(20)),
+	maxQueriesPerIPPerHour = Some(100),
+	validity = Some(300),
+	indexes = Some(Seq("myIndex")),
+	referers = Some(Seq("algolia.com/*")),
+	queryParameters = Some(Seq("typoTolerance=strict&ignorePlurals=false")),
+	description = Some("Limited search only API key for algolia.com")
+)
+
+//global
+client.execute {
+	add key apiKey
+}
+
+//for an index
+client.execute {
+	add key apiKey to "myIndex"
+}
 ```

@@ -1,3 +1,24 @@
+
 ```scala
-//Not yet implemented
+// Creates a new global API key that is valid for 300 seconds
+client.execute {
+	update key "myAPIKey" `with` ApiKey(
+		acl = Some(Seq(Acl.search)),
+		maxHitsPerQuery = Some(0)),
+		maxQueriesPerIPPerHour = Some(0),
+		validity = Some(300)
+	)
+}
+
+// Update a index specific API key valid for 300 seconds, with a rate limit of 100 calls per hour per IP and a
+val apiKey = ApiKey(
+	acl = Some(Seq(Acl.search)),
+	maxHitsPerQuery = Some(100)),
+	maxQueriesPerIPPerHour = Some(100),
+	validity = Some(300)
+)
+
+client.execute {
+	update key "myAPIKey" `with` apiKey from "myIndex"
+}
 ```
