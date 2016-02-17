@@ -1,3 +1,16 @@
 ```scala
-//Not yet implemented
+// Creates a new global API key that can only perform search actions
+val apiKey = ApiKey(
+	acl = Some(Seq(Acl.search)),
+)
+
+//global
+client.execute {
+	add key apiKey
+}
+
+//for an index
+client.execute {
+	add key apiKey to "myIndex"
+}
 ```

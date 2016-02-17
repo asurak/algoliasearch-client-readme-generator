@@ -1,3 +1,11 @@
 ```scala
-//Not yet implemented
+//global
+client.execute {
+	delete key "f420238212c54dcfad07ea0aa6d5c45f"
+}
+
+//for an index
+client.execute {
+	delete key "f420238212c54dcfad07ea0aa6d5c45f" from "myIndex"
+}
 ```
