@@ -1,4 +1,4 @@
 ```scala
-client.execute { search into "contacts" query "or" }
-client.execute { search into "contacts" query "jim" }
+client.execute { search into "contacts" query Query(query = Some("or")) }
+client.execute { search into "contacts" query Query(query = Some("jim")) }
 ```

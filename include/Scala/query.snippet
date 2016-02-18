@@ -1,3 +1,9 @@
 ```scala
-//Not yet implemented
+client.execute {
+	search into "myIndex" query Query(
+		query = Some("query string"),
+		attributesToRetrieve = Some(Seq("firstname", "lastname")),
+		hitsPerPage = Some(50)
+	)
+}
 ```
