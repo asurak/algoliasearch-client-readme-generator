@@ -1,13 +1,13 @@
 ```scala
 // search by firstname
-client.execute { search into "contacts" query "jimmie" }
+client.execute { search into "contacts" query Query(query = Some("jimmie")) }
 
 // search a firstname with typo
-client.execute { search into "contacts" query "jimie" }
+client.execute { search into "contacts" query Query(query = Some("jimie")) }
 
 // search for a company
-client.execute { search into "contacts" query "california paint" }
+client.execute { search into "contacts" query Query(query = Some("california paint")) }
 
 // search for a firstname & company
-client.execute { search into "contacts" query "jimmie paint" }
+client.execute { search into "contacts" query Query(query = Some("jimmie paint")) }
 ```

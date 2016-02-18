@@ -1,3 +1,7 @@
 ```scala
-//Not yet implemented
+client.execute {
+	changeSettings of "myIndex" `with` IndexSettings(
+		attributesToIndex = Some(Seq("lastname", "firstname", "company"))
+	)
+}
 ```
