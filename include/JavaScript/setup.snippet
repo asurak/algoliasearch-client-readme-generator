@@ -16,7 +16,9 @@ We are [browserify](http://browserify.org/)able and [webpack](http://webpack.git
 bower install algoliasearch -S
 ```
 
-#### &lt;script&gt; tag using jsDelivr
+#### &lt;script&gt; tag using CDNS
+
+##### Recommended: jsDelivr.com
 
 [jsDelivr](http://www.jsdelivr.com/about.php) is a global CDN delivery for JavaScript libraries.
 
@@ -25,6 +27,12 @@ To include the latest releases and all upcoming features and patches, use this:
 ```html
 <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
 ```
+
+##### Other CDNS
+
+We recommend using jsDelivr, but `algoliasearch` is also available at:
+- [CDNJS](https://cdnjs.com/libraries/algoliasearch)
+- [npmcdn](https://npmcdn.com): https://npmcdn.com/algoliasearch@3/dist/algoliasearch.min.js
 
 #### Browserify, webpack
 
@@ -77,5 +85,20 @@ Parse.Cloud.define("hello", function(request, response) {
 
     response.success('We got ' + results.nbHits + ' results');
   });
+});
+```
+
+### React Native
+
+```sh
+npm install algoliasearch --save
+```
+
+```js
+var algoliasearch = require('algoliasearch/reactnative');
+var client = algoliasearch('applicationID', 'apiKey');
+var index = client.initIndex('indexName');
+index.search('something', function searchDone(err, content) {
+  console.log(err, content);
 });
 ```
