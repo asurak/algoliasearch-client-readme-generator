@@ -99,7 +99,9 @@ Table of Contents
 1. [Multiple queries](#multiple-queries)
 1. [Get an object](#get-an-object)
 1. [Delete an object](#delete-an-object)
+<% if !scala? -%>
 1. [Delete by query](#delete-by-query)
+<% end -%>
 1. [Index settings](#index-settings)
 1. [List indices](#list-indices)
 1. [Delete an index](#delete-an-index)
@@ -741,7 +743,7 @@ You can delete an object using its `objectID`:
 
 <%= snippet("delete_object") %>
 
-<% if !cmd? %>
+<% if !cmd? && !scala? %>
 Delete by query
 -------------
 
