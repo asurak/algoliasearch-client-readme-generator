@@ -11,6 +11,8 @@ Encoding.default_internal = Encoding::UTF_8
 $:.unshift File.join(File.dirname(__FILE__), 'src')
 
 require 'language'
+require 'table_helpers'
+Language.send(:include, TableHelpers)
 
 class Generator
   INCLUDE_DIR = 'include'
