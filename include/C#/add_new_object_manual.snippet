@@ -1,8 +1,8 @@
-```charp
-var res = index.AddObject(JObject.Parse(@"{""firstname"":""Jimmie"", 
+```csharp
+var res = index.AddObject(JObject.Parse(@"{""firstname"":""Jimmie"",
                                            ""lastname"":""Barninger""}"), "myID");
 // Asynchronous
-// var res = await index.AddObjectAsync(JObject.Parse(@"{""firstname"":""Jimmie"", 
+// var res = await index.AddObjectAsync(JObject.Parse(@"{""firstname"":""Jimmie"",
 //                                                       ""lastname"":""Barninger""}"), "myID");
 System.Diagnostics.Debug.WriteLine("objectID=" + res["objectID"]);
 ```
