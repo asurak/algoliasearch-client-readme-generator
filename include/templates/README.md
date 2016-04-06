@@ -73,17 +73,17 @@ Table of Contents
 1. [Setup](#setup)
 <% if js? -%>
   - [Frontend](#frontend)
-  - [Node.js](#node-js)
-  - [Parse.com](#parse-com)
+  - [Node.js](#nodejs)
+  - [Parse.com](#parsecom-)
   - [React Native](#react-native)
 <% end -%>
 1. [Quick Start](#quick-start)
 <% if js? -%>
-  - [Frontend](#frontend)
+  - [Frontend](#frontend-1)
     - [Vanilla JavaScript](#vanilla-javascript)
     - [jQuery module](#jquery-module)
     - [AngularJS module](#angularjs-module)
-  - [Backend (Node.js)](#backend-node-js)
+  - [Backend (Node.js)](#backend-nodejs)
 1. [Client options](#client-options)
 1. [Callback convention](#callback-convention)
 1. [Promises](#promises)
