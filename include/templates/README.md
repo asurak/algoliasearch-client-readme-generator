@@ -111,11 +111,11 @@ Table of Contents
 1. [Wait indexing](#wait-indexing)
 1. [Batch writes](#batch-writes)
 1. [Copy / Move an index](#copy--move-an-index)
-<% if !android? -%>
 1. [Backup / Export an index](#backup--export-an-index)
-<% end -%>
+<% if backend? -%>
 1. [API Keys](#api-keys)
 1. [Logs](#logs)
+<% end -%>
 <% if ruby? %>1. [Mock](#mock)<% end %>
 
 <!--/NO_HTML-->
