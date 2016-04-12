@@ -1,4 +1,14 @@
 ```java
-index.searchASync(new Query("or"), this);
-index.searchASync(new Query("jim"), this);
+index.searchAsync(new Query("or"), new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        // [...]
+    }
+});
+index.searchAsync(new Query("jim"), new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        // [...]
+    }
+});
 ```

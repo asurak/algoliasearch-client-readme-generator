@@ -1,8 +1,7 @@
- 1. [Download and add sources](https://github.com/algolia/algoliasearch-client-swift/archive/master.zip) to your project or use [Carthage](https://github.com/Carthage/Carthage) by adding `github "algolia/algoliasearch-client-swift"` in your Cartfile or use cocoapods by adding `pod 'AlgoliaSearch-Client-Swift', '~> 2.0'` in your Podfile.
- 2. Add the `import AlgoliaSearch` call to your project
- 3. Initialize the client with your ApplicationID and API-Key. You can find all of them on [your Algolia account](http://www.algolia.com/users/edit).
+1. Add `pod 'AlgoliaSearch-Client-Swift', '~> 3.0'` to your Podfile. (We only support Cocoapods so far.)
+2. Add `import AlgoliaSearch` to your source files.
+3. Initialize the client with your application ID and API key (you can find them on [your Algolia Dashboard](https://www.algolia.com/api-keys)):
 
 ```swift
-let client = AlgoliaSearch.Client(appID: "YourApplicationID", apiKey: "YourAPIKey")
+let client = Client(appID: "YourApplicationID", apiKey: "YourAPIKey")
 ```
-

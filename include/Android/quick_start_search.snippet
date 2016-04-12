@@ -1,18 +1,16 @@
 ```java
+CompletionHandler completionHandler = new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        // [...]
+    }
+};
 // search by firstname
-index.searchASync(new Query("jimmie"), this);
+index.searchAsync(new Query("jimmie"), completionHandler);
 // search a firstname with typo
-index.searchASync(new Query("jimie"), this);
+index.searchAsync(new Query("jimie"), completionHandler);
 // search for a company
-index.searchASync(new Query("california paint"), this);
+index.searchAsync(new Query("california paint"), completionHandler);
 // search for a firstname & company
-index.searchASync(new Query("jimmie paint"), this);
-```
-
-You will get search results in the `searchResult` methods of `SearchListener`:
-```java
-@Override
-public void searchResult(Index index, Query query, JSONObject results) {
-    Log.d("search", results.toString());
-}
+index.searchAsync(new Query("jimmie paint"), completionHandler);
 ```

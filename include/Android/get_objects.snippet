@@ -1,3 +1,8 @@
 ```java
-index.getObjectsASync(Arrays.asList("myID1", "myID2"), this);
+index.getObjectsAsync(Arrays.asList("myID1", "myID2"), new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        // [...]
+    }
+});
 ```

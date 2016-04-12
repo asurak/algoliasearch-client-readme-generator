@@ -1,7 +1,7 @@
 ```swift
-client.deleteIndex("contacts", block: { (content, error) -> Void in
-	if let error = error {
-		println("Could not delete: \(error)")
+client.deleteIndex("contacts", completionHandler: { (content, error) -> Void in
+	if error != nil {
+		print("Could not delete: \(error!)")
 	}
 })
 ```

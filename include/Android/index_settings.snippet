@@ -1,16 +1,12 @@
 ```java
-index.getSettingsASync(this);
-```
-
-You will get the index settings in the `settingsResult` methods of SettingsListener:
-
-```java
-@Override
-public void settingsResult(Index index, TaskParams.Settings context, JSONObject results) {
-    Log.d("debug", results.toString());
-}
+index.getSettingsAsync(new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        // [...]
+    }
+});
 ```
 
 ```java
-index.setSettingsASync(new JSONObject().append("customRanking", "desc(followers)"), this);
+index.setSettingsAsync(new JSONObject().append("customRanking", "desc(followers)"), null);
 ```

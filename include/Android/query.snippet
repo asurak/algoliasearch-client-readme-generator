@@ -1,7 +1,13 @@
 ```java
 Index index = client.initIndex("contacts");
-index.searchASync(new Query("query string"), this);
-index.searchASync(new Query("query string").
-                  setAttributesToRetrieve(Arrays.asList("firstname", "lastname")).
-                  setNbHitsPerPage(50), this);
+Query query = new Query("query string")
+    .setAttributesToRetrieve(Arrays.asList("firstname", "lastname"))
+    .setNbHitsPerPage(50);
+index.searchAsync(query, new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        // [...]
+    }
+});
+
 ```

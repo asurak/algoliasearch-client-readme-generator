@@ -1,14 +1,14 @@
 ```swift
 // Retrieves all attributes
-index.getObject("myID", block: { (content, error) -> Void in
+index.getObject("myID", completionHandler: { (content, error) -> Void in
 	if error == nil {
-		println("Object: \(content)")
+		print("Object: \(content)")
 	}
 })
 // Retrieves only the firstname attribute
-index.getObject("myID", attributesToRetrieve: ["firstname"], block: { (content, error) -> Void in
+index.getObject("myID", attributesToRetrieve: ["firstname"], completionHandler: { (content, error) -> Void in
 	if error == nil {
-		println("Object: \(content)")
+		print("Object: \(content)")
 	}
 })
 ```

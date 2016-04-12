@@ -1,6 +1,3 @@
 ```java
-List<String> ids = new ArrayList<String>();
-ids.add("myID1");
-ids.add("myID2");
-index.deleteObjectsASync(ids, this);
+index.deleteObjectsAsync(Arrays.asList("myID1", "myID2"), null);
 ```

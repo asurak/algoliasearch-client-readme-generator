@@ -1,7 +1,7 @@
 ```swift
-index.clearIndex(block: { (content, error) -> Void in
-	if let error = error {
-		println("Could not clear index: \(error)")
+index.clearIndex(completionHandler: { (content, error) -> Void in
+	if error != nil {
+		print("Could not clear index: \(error!)")
 	}
 })
 ```

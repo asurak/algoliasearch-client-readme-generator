@@ -1,3 +1,4 @@
 ```java
-index.setSettingsASync(new JSONObject().append("customRanking", "desc(followers)"), this);
+JSONObject settings = new JSONObject().append("customRanking", "desc(followers)");
+index.setSettingsAsync(settings, null);
 ```

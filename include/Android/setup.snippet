@@ -1,17 +1,14 @@
-1. Download the latest version from **JCenter**
-2. Initialize the client with your Application ID and API Key. You can find them on [your Algolia account](http://www.algolia.com/users/edit).
-3. Make your Activity class implement the listener interface that you need to be able to use the asynchronous methods (APIClientListener, SearchListener, IndexingListener, ...).
-
-```java
-APIClient client = new APIClient("YourApplicationID", "YourAPIKey");
-```
-
-If you're using Gradle, add the following dependency to you build file:
+- Add the following dependency to your Gradle build file:
 
 ```gradle
 dependencies {
     // [...]
-
-    compile 'com.algolia:algoliasearch-android:2.+@aar'
+    compile 'com.algolia:algoliasearch-android:3.+@aar'
 }
+```
+
+- Initialize the client with your application ID and API key. You can find them on [your Algolia Dashboard](https://www.algolia.com/api-keys).
+
+```java
+Client client = new Client("YOUR_APP_ID", "YOUR_API_KEY");
 ```

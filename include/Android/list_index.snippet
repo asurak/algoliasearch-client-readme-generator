@@ -1,3 +1,8 @@
 ```java
-client.listIndexesASync(this);
+client.listIndexesAsync(new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        // [...]
+    }
+});
 ```

@@ -2,14 +2,14 @@ Without any prior configuration, you can start indexing contacts in the ```conta
 
 ```java
 Index index = client.initIndex("contacts");
-index.addObjectASync(new JSONObject()
+index.addObjectAsync(new JSONObject()
       .put("firstname", "Jimmie")
       .put("lastname", "Barninger")
       .put("followers", 93)
-      .put("company", "California Paint"), this);
-index.addObjectASync(new JSONObject()
+      .put("company", "California Paint"), null);
+index.addObjectAsync(new JSONObject()
       .put("firstname", "Warren")
       .put("lastname", "Speach")
       .put("followers", 42)
-      .put("company", "Norwalk Crmc"), this);
+      .put("company", "Norwalk Crmc"), null);
 ```

@@ -11,26 +11,20 @@
 <% if swift? -%>
 **&lt;Welcome Objective-C developers&gt;**
 
-In July 2015, we released a new version of our Swift client able to work with Swift and Objective-C.
+In July 2015, we released a new version of our Swift client, able to work with Swift and Objective-C. As of version 3 (April 2016), Swift has become the reference implementation for both Swift and Objective-C projects.
 
 If you were using our Objective-C client, [read the migration guide](https://github.com/algolia/algoliasearch-client-swift/wiki/Migration-guide-from-Objective-C-to-Swift-API-Client).
 
-The Objective-C API Client is still supported and can be found [here](https://github.com/algolia/algoliasearch-client-objc).
+The [Objective-C API Client](https://github.com/algolia/algoliasearch-client-objc) is no longer under active development. It is still supported for bug fixes, but will not receive new features.
 
 **&lt;/Welcome Objective-C developers&gt;**
-<% end -%>
+<% elsif objc? -%>
 
-<% if objc? -%>
-**&lt;Welcome Swift developers&gt;**
+**WARNING: Deprecated.** In July 2015, we released our [Swift API Client](https://github.com/algolia/algoliasearch-client-swift), able to work with Swift and Objective-C. As of version 3 (April 2016), Swift has become the reference implementation for both Swift and Objective-C projects.
 
-In June 2015, we release our [Swift API Client](https://github.com/algolia/algoliasearch-client-swift).
+*This Objective-C API Client is no longer under active development.* It is still supported for bug fixes, but will not receive new features.
 
-It is able to work with Swift and Objective-C. If you plan to use Swift in your project, please use it since we don't support Swift in our Objective-C API Client.
-
-The Objective-C API Client is still supported and updated.
-
-**&lt;/Welcome Swift developers&gt;**
-<% end -%>
+<% end # swift? / objc? -%>
 
 <%#    ************************** INTRO ********************************** %>
 
@@ -43,11 +37,10 @@ The Objective-C API Client is still supported and updated.
 <% if cmd? -%>
 Our command line API client is a small wrapper around CURL to make it easier to use the [Algolia Search REST API](https://www.algolia.com/doc/rest).
 <% elsif !js? -%>
-Our <%= @name %> client lets you easily use the [Algolia Search API](https://www.algolia.com/doc/rest) from your <%= puts({'C#' => 'App', 'Java' => "Java Application", "Android" => "Android Application", 'Objective-C' => "iOS & OS X applications"}, "backend") %>. It wraps the [Algolia Search REST API](https://www.algolia.com/doc/rest).
+Our <%= @name %> client lets you easily use the [Algolia Search API](https://www.algolia.com/doc/rest) from your <%= puts({'C#' => 'App', 'Java' => "Java Application", "Android" => "Android application", 'Objective-C' => "iOS & OS X applications", 'Swift' => "iOS & OS X applications"}, "backend") %>. It wraps the [Algolia Search REST API](https://www.algolia.com/doc/rest).
 <% end -%>
 
 <% if csharp? %>Compatible with .NET 4.0, .NET 4.5, ASP.NET vNext 1.0, Mono 4.5, Windows 8, Windows 8.1, Windows Phone 8.1, Xamarin iOS, and Xamarin Android.<% end %>
-<% if android? %>It is based on our [Java API client](https://github.com/algolia/algoliasearch-client-java) and  includes an easy to use asynchronous API to avoid networks calls on UI Thread.<% end %>
 
 <%= import("build_status.info") if !cmd? %>
 
@@ -92,7 +85,7 @@ Table of Contents
 1. [Proxy support](#proxy-support)
 1. [Keep-alive](#keep-alive)
 <% end -%>
-<% if scala? -%>1. [Philosophy of the scala client](#philosophy)<% end %>
+<% if scala? -%>1. [Philosophy of the scala client](#philosophy)<% end -%>
 1. [Guides & Tutorials](#guides-tutorials)
 <% if js? -%>1. [Old JavaScript clients](#old-javascript-clients)<% end -%>
 
@@ -913,7 +906,7 @@ The list of keywords is:
 
 To get a full understanding of how `Distinct` works, you can have a look at our [guide on distinct](https://www.algolia.com/doc/search/distinct).
 
-<% if swift? || objc? %>
+<% if android? || swift? || objc? %>
 
 Search cache
 ==================
@@ -1211,10 +1204,10 @@ Batch writes
 
 You may want to perform multiple operations with one API call to reduce latency.
 We expose four methods to perform batch operations:
- * `<%= puts({ "JavaScript" => "addObjects", "PHP" => "addObjects", "Python" => "add_objects", "Ruby" => "add_objects", "Shell" => "addObject", 'C#' => 'AddObjects', 'Java' => 'addObjects', 'Android' => 'addObjects', 'Objective-C' => 'addObjects', 'Go' => 'AddObjects' }) %>`: Add an array of objects using automatic `objectID` assignment.
- * `<%= puts({ "JavaScript" => "saveObjects", "PHP" => "saveObjects", "Python" => "save_objects", "Ruby" => "save_objects", "Shell" => "saveObject", 'C#' => 'SaveObjects', 'Java' => 'saveObjects', 'Android' => 'saveObjects', 'Objective-C' => 'saveObjects', 'Go' => 'UpdateObjects' }) %>`: Add or update an array of objects that contains an `objectID` attribute.
- * `<%= puts({ "JavaScript" => "deleteObjects", "PHP" => "deleteObjects", "Python" => "delete_objects", "Ruby" => "delete_objects", "Shell" => "deleteObject", 'C#' => 'DeleteObjects', 'Java' => 'deleteObjects', 'Android' => 'deleteObjects', 'Objective-C' => 'deleteObjects', 'Go' => "DeleteObjects" }) %>`: Delete an array of objectIDs.
- * `<%= puts({ "JavaScript" => "partialUpdateObjects", "PHP" => "partialUpdateObjects", "Python" => "partial_update_objects", "Ruby" => "partial_update_objects", "Shell" => "partialUpdate", 'C#' => "PartialUpdateObjects", 'Java' => 'partialUpdateObjects', 'Android' => 'partialUpdateObjects', 'Objective-C' => 'partialUpdateObjects', 'Go' => 'PartialUpdateObjects' }) %>`: Partially update an array of objects that contain an `objectID` attribute (only specified attributes will be updated).
+ * `<%= puts({ "JavaScript" => "addObjects", "PHP" => "addObjects", "Python" => "add_objects", "Ruby" => "add_objects", "Shell" => "addObject", 'C#' => 'AddObjects', 'Java' => 'addObjects', 'Android' => 'addObjects', 'Objective-C' => 'addObjects', 'Go' => 'AddObjects', "Swift" => "addObjects" }) %>`: Add an array of objects using automatic `objectID` assignment.
+ * `<%= puts({ "JavaScript" => "saveObjects", "PHP" => "saveObjects", "Python" => "save_objects", "Ruby" => "save_objects", "Shell" => "saveObject", 'C#' => 'SaveObjects', 'Java' => 'saveObjects', 'Android' => 'saveObjects', 'Objective-C' => 'saveObjects', 'Go' => 'UpdateObjects', "Swift" => "saveObjects" }) %>`: Add or update an array of objects that contains an `objectID` attribute.
+ * `<%= puts({ "JavaScript" => "deleteObjects", "PHP" => "deleteObjects", "Python" => "delete_objects", "Ruby" => "delete_objects", "Shell" => "deleteObject", 'C#' => 'DeleteObjects', 'Java' => 'deleteObjects', 'Android' => 'deleteObjects', 'Objective-C' => 'deleteObjects', 'Go' => "DeleteObjects", "Swift" => "deleteObjects" }) %>`: Delete an array of objectIDs.
+ * `<%= puts({ "JavaScript" => "partialUpdateObjects", "PHP" => "partialUpdateObjects", "Python" => "partial_update_objects", "Ruby" => "partial_update_objects", "Shell" => "partialUpdate", 'C#' => "PartialUpdateObjects", 'Java' => 'partialUpdateObjects', 'Android' => 'partialUpdateObjects', 'Objective-C' => 'partialUpdateObjects', 'Go' => 'PartialUpdateObjects', "Swift" => "partialUpdateObjects" }) %>`: Partially update an array of objects that contain an `objectID` attribute (only specified attributes will be updated).
 
 Example using automatic `objectID` assignment:
 <%= snippet("batch_new_objects") %>
@@ -1258,7 +1251,6 @@ The move command is particularly useful if you want to update a big index atomic
 
 <%= snippet("update_index") %>
 
-<% if !android? %>
 Backup / Export an index
 ==================
 
@@ -1293,12 +1285,14 @@ events whenever a new chunk of records is fetched.
 
 <% end -%>
 
-<% end %>
+
+<% if backend? %>
 
 API Keys
 ==================
 
-The ADMIN API key provides full control of all your indices.
+The **admin** API key provides full control of all your indices. *The admin API key should always be kept secure; do NOT use it from outside your back-end.*
+
 You can also generate user API keys to control security.
 These API keys can be restricted to a set of operations or/and restricted to a given index.
 
@@ -1418,6 +1412,10 @@ index.search('another query', function(err, content) {
 ```
 <% end %>
 
+<% end # backend? %>
+
+<% if backend? %>
+
 Logs
 ==================
 
@@ -1453,6 +1451,8 @@ Specify the type of logs to retrieve:
 <% end %>
 
 <%= snippet("logs_get") %>
+
+<% end # backend? %>
 
 <% if ruby? %>Mock
 ==================

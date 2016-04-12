@@ -1,14 +1,27 @@
+Using the low-level methods:
+
 ```swift
-index.browse(query, block: { (iterator, end, error) -> Void in
-	// Retrieve the next cursor from the browse method
-	println(iterator.cursor)
-    if let error = error {
-        // Handle errors
-    } else if end {
-        // End of index
-    } else {
-        // Do something
-        iterator.next()
-    }
+index.browse(Query(), completionHandler: { (content, error) in
+	if error != nil {
+		return
+	}
+	// Handle content [...]
+	// If there is more content...
+	if let cursor = content!["cursor"] as? String {
+		index.browseFrom(cursor, completionHandler: { (content, error) in
+			// Handle more content [...]
+		})
+	}
 })
+```
+
+Using the browse helper:
+
+```swift
+let iterator = BrowseIterator(index: index, query: Query()) { (iterator, content, error) in
+	// Handle the content/error [...]
+	// You may cancel the iteration with:
+	iterator.cancel()
+}
+iterator.start()
 ```

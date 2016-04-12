@@ -1,3 +1,25 @@
 ```java
-index.addObjectASync(new JSONObject().put("firstname", "Jimmie").put("lastname", "Barninger"), this);
+JSONObject object = new JSONObject().put("firstname", "Jimmie").put("lastname", "Barninger");
+index.addObjectAsync(object, new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        if (error != null) {
+            // Handle error.
+        } else {
+            String taskID = content.optString("taskID", null);
+            if (taskID == null) {
+                // Handle error.
+            } else {
+                index.waitTask(taskID, new CompletionHandler() {
+                    @Override
+                    public void requestCompleted(JSONObject content, AlgoliaException error) {
+                        if (error == null) {
+                            // Task is published.
+                        }
+                    }
+                });
+            }
+        }
+    }
+});
 ```

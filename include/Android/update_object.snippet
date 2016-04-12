@@ -1,6 +1,7 @@
 ```java
-index.saveObjectASync(new JSONObject()
-      .put("firstname", "Jimmie")
-      .put("lastname", "Barninger")
-      .put("city", "New York"), "myID", this);
+JSONObject object = new JSONObject()
+    .put("firstname", "Jimmie")
+    .put("lastname", "Barninger")
+    .put("city", "New York");
+index.saveObjectAsync(object, "myID", null);
 ```

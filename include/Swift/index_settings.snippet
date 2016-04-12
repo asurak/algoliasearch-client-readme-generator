@@ -1,7 +1,7 @@
 ```swift
-index.getSettings(block: { (content, error) -> Void in
+index.getSettings(completionHandler: { (content, error) -> Void in
 	if error == nil 
-		println("Settings: \(content)")
+		print("Settings: \(content!)")
 	}
 })
 ```
@@ -9,5 +9,5 @@ index.getSettings(block: { (content, error) -> Void in
 ```swift
 let customRanking = ["desc(followers)", "asc(name)"]
 let settings = ["customRanking": customRanking]
-index.setSettings(settings, block: nil)
+index.setSettings(settings)
 ```

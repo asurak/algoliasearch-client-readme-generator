@@ -1,9 +1,11 @@
 ```swift
-myIndex.enableSearchCache()
+// Enable the search cache with default settings.
+index.enableSearchCache()
 ```
 
 Or:
 
 ```swift
-myIndex.enableSearchCache(expiringTimeInterval: 300)
+// Enable the search cache with a TTL of 5 minutes.
+index.enableSearchCache(expiringTimeInterval: 300)
 ```

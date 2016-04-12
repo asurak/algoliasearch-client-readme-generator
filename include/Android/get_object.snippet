@@ -1,6 +1,16 @@
 ```java
 // Retrieves all attributes
-index.getObjectASync("myID", this);
+index.getObjectAsync("myID", new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        // [...]
+    }
+});
 // Retrieves only the firstname attribute
-index.getObjectASync("myID", Arrays.asList("firstname"), this);
+index.getObjectAsync("myID", Arrays.asList("firstname"), new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        // [...]
+    }
+});
 ```

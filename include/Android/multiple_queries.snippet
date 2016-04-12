@@ -3,11 +3,16 @@
 //  - 1st query targets index `categories`
 //  - 2nd and 3rd queries target index `products`
 
-List<IndexQuery> queries = new ArrayList<IndexQuery>();
+List<IndexQuery> queries = new ArrayList<>();
 
 queries.add(new IndexQuery("categories", new Query(myQueryString).setHitsPerPage(3)));
 queries.add(new IndexQuery("products", new Query(myQueryString).setHitsPerPage(3).setTagFilters("promotion"));
 queries.add(new IndexQuery("products", new Query(myQueryString).setHitsPerPage(10)));
 
-client.multipleQueriesASync(queries, this);
+client.multipleQueriesAsync(queries, new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        // [...]
+    }
+});
 ```

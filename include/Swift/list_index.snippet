@@ -1,7 +1,7 @@
 ```swift
-client.listIndexes(block: { (content, error) -> Void in
+client.listIndexes(completionHandler: { (content, error) -> Void in
 	if error == nil {
-		println("Indexes: \(content)")
+		print("Indexes: \(content!)")
 	}
 })
 ```

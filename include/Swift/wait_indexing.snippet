@@ -1,11 +1,15 @@
 ```swift
-index.addObject(newObject, block: { (content, error) -> Void in
-	if error == nil {
-		self.index.waitTask(content!["taskID"] as Int, block: { (content, error) -> Void in
-			if error == nil {
-				println("New object is indexed!")
-			}
-		})
+index.addObject(newObject, completionHandler: { (content, error) -> Void in
+	if error != nil {
+		return
 	}
+	guard let taskID = content!["taskID"] as? Int else {
+		return // could not retrieve task ID
+	}
+	self.index.waitTask(taskID, completionHandler: { (content, error) -> Void in
+		if error == nil {
+			print("New object is indexed!")
+		}
+	})
 })
 ```

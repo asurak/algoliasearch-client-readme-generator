@@ -101,6 +101,16 @@ class Language
     name == "Scala"
   end
 
+  # Test if the current language is used on the back-end side.
+  def backend?
+    cmd? || csharp? || go? || java? || js? || php? || python? || ruby? || scala?
+  end
+
+  # Test if the current language is used on the front-end side.
+  def frontend?
+    android? || js? || objc? || swift?
+  end
+
   def get_binding
     binding
   end

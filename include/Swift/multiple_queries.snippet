@@ -3,13 +3,13 @@
 // 		- 1st query target index `categories`
 //		- 2nd and 3rd queries target index `products`
 let queries = [
-	["indexName": "categories", "query": aQueryObject],
-	["indexName": "products", "query": anotherQueryObject],
-	["indexName": "products", "query": anotherQueryObject]
+	IndexQuery(indexName: "categories", query: Query(query: "electronics")),
+	IndexQuery(indexName: "products", query: Query(query: "iPhone")),
+	IndexQuery(indexName: "products", query: Query(query: "Galaxy"))
 ]
-client.multipleQueries(queries, block: { (content, error) -> Void in
+client.multipleQueries(queries, completionHandler: { (content, error) -> Void in
 	if error == nil {
-		println("Result: \(content)")
+		print("Result: \(content!)")
 	}
 })
 ```

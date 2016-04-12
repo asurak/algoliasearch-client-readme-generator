@@ -1,14 +1,14 @@
 ```java
-index.addObjectASync(new JSONObject()
-      .put("firstname", "Jimmie")
-      .put("lastname", "Barninger"), this);
-```
-
-You will get the assigned objectID in the `indexingResult` callback of the IndexingListener interface:
-
-```java
-@Override
-public void indexingResult(Index index, TaskParams.Indexing context, JSONObject result) {
-  Log.d("debug", result.optString("objectID"));
-}
+JSONObject object = new JSONObject()
+    .put("firstname", "Jimmie")
+    .put("lastname", "Barninger");
+index.addObjectAsync(object, new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject content, AlgoliaException error) {
+        // Retrieve the auto-assigned object ID:
+        if (content != null) {
+            String objectID = content.optString("objectID");
+        }
+    }
+});
 ```

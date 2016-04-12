@@ -1,6 +1,7 @@
 ```java
-index.setSettingsASync(new JSONObject()
-      .append("attributesToIndex", "lastname")
-      .append("attributesToIndex", "firstname")
-      .append("attributesToIndex", "company"), this);
+JSONObject settings = new JSONObject()
+    .append("attributesToIndex", "lastname")
+    .append("attributesToIndex", "firstname")
+    .append("attributesToIndex", "company");
+index.setSettingsAsync(settings, null);
 ```

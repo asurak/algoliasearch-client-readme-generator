@@ -1,9 +1,10 @@
 ```swift
 let newObject = ["firstname": "Jimmie", "lastname": "Barninger"]
-index.addObject(object, withID: "myID", block: { (content, error) -> Void in
+index.addObject(newObject, withID: "myID", completionHandler: { (content, error) -> Void in
 	if error == nil {
-		let objectID = content!["objectID"] as String
-		println("Object ID: \(objectID)")
+		if let objectID = content!["objectID"] as? String {
+			print("Object ID: \(objectID)")
+		}
 	}
-)
+})
 ```

@@ -1,9 +1,9 @@
 ```swift
 let customRanking = ["desc(followers)"]
 let settings = ["customRanking": customRanking]
-index.setSettings(settings, block: { (content, error) -> Void in
-	if let error = error {
-		println("Error when applying settings: \(error)")
+index.setSettings(settings, completionHandler: { (content, error) -> Void in
+	if error != nil {
+		print("Error when applying settings: \(error!)")
 	}
 })
 ```

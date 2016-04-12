@@ -1,26 +1,26 @@
 ```swift
 // search by firstname
-index.search(Query(query: "jimmie"), block: { (content, error) -> Void in
+index.search(Query(query: "jimmie"), completionHandler: { (content, error) -> Void in
 	if error == nil {
-		println("Result: \(content)")
+		print("Result: \(content)")
 	}
 })
 // search a firstname with typo
-index.search(Query(query: "jimie"), block: { (content, error) -> Void in
+index.search(Query(query: "jimie"), completionHandler: { (content, error) -> Void in
 	if error == nil {
-		println("Result: \(content)")
+		print("Result: \(content)")
 	}
 })
 // search for a company
-index.search(Query(query: "california paint"), block: { (content, error) -> Void in
+index.search(Query(query: "california paint"), completionHandler: { (content, error) -> Void in
 	if error == nil {
-		println("Result: \(content)")
+		print("Result: \(content)")
 	}
 })
 // search for a firstname & company
-index.search(Query(query: "jimmie paint"), block: { (content, error) -> Void in
+index.search(Query(query: "jimmie paint"), completionHandler: { (content, error) -> Void in
 	if error == nil {
-		println("Result: \(content)")
+		print("Result: \(content)")
 	}
 })
 ```

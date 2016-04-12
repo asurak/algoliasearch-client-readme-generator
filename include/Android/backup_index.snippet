@@ -1,0 +1,35 @@
+Using the low-level methods:
+
+```java
+index.browseAsync(query, new CompletionHandler() {
+    @Override
+    public void requestCompleted(JSONObject result, AlgoliaException error) {
+        if (error != null) return;
+        // Handle the content. [...]
+        // If there is more content, continue browse.
+        String cursor = result.optString("cursor", null);
+        if (cursor != null) {
+            index.browseFrom(cursor, new CompletionHandler() {
+                @Override
+                public void requestCompleted(JSONObject result, AlgoliaException error) {
+                    // Handle more content. [...]
+                }
+            });
+        }
+    }
+});
+```
+
+Using the browse helper:
+
+```java
+BrowseIterator iterator = new BrowseIterator(index, query, new BrowseIterator.BrowseIteratorHandler() {
+    @Override
+    public void handleBatch(@NonNull BrowseIterator iterator, JSONObject result, AlgoliaException error) {
+        // Handle the result/error. [...]
+        // You may optionally cancel the iteration by calling:
+        iterator.cancel();
+    }
+});
+iterator.start();
+```

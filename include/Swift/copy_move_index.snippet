@@ -1,18 +1,18 @@
 ```swift
 // Rename MyIndex in MyIndexNewName
-client.moveIndex("MyIndex", to: "MyIndexNewName", block: { (content, error) -> Void in
-	if let error = error {
-		println("Move failure: \(error)")
+client.moveIndex("MyIndex", to: "MyIndexNewName", completionHandler: { (content, error) -> Void in
+	if error != nil {
+		print("Move failure: \(error!)")
 	} else {
-		println("Move success: \(content)")
+		print("Move success: \(content!)")
 	}
 })
 // Copy MyIndex in MyIndexCopy
-client.copyIndex("MyIndex", to: "MyIndexCopy", block: { (content, error) -> Void in
-	if let error = error {
-		println("Copy failure: \(error)")
+client.copyIndex("MyIndex", to: "MyIndexCopy", completionHandler: { (content, error) -> Void in
+	if error != nil {
+		print("Copy failure: \(error!)")
 	} else {
-		println("Copy success: \(content)")
+		print("Copy success: \(content!)")
 	}
 })
 ```
