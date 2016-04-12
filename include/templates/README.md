@@ -812,7 +812,7 @@ A string that contains the list of attributes you want to highlight according to
     <% end %>
 
     <% params_table_row('snippetEllipsisText', type: 'string', default: '\'\'') do %>
-      String used as an ellipsis indicator when a snippet is truncated (defaults to empty).
+      String used as an ellipsis indicator when a snippet is truncated. Defaults to an empty string for all accounts created before 10/2/2016, and to `…` (UTF-8 U+2026) for accounts created after that date.
     <% end %>
 
 
