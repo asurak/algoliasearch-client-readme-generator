@@ -1,0 +1,19 @@
+# This travis.yml was built to:
+#   - install ruby
+#   - run shell script
+# We used the GitHub ruby client API to create the pull request
+language: ruby
+before_install:
+  - 'git config --global user.email "algoliareadmebot@users.noreply.github.com"'
+  - 'git config --global user.name "algoliareadmebot"'
+script: commit.sh
+gemfile: docs/Gemfile
+branches:
+  only:
+    - master
+cache:
+  bundler: true
+env:
+  global:
+    # GH_TOKEN
+    - secure: FrJgnOtz8OnY6hmCi0FpkMCoPJvmaCKxI11Y6TVtzV2S6bid+1rgCrKhmbR0psnRBniObErb0Wt/7/O1eVc3SP27mWrxuGXvmbxxu8q8F2TggZdHoJFzPl2k8bG7cpNnTCi22SkgSfNdcQq3WdMdbz90BSOVV1crz9xltALoOoU=

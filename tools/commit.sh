@@ -1,89 +1,54 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "$0")/.."
+REPOS=("algoliasearch-client-go" "algoliasearch-client-csharp" "algoliasearch-client-swift" "algoliasearch-client-android" "algoliasearch-client-go" "algoliasearch-client-java" "algoliasearch-client-ruby" "algoliasearch-client-python" "algoliasearch-client-scala" "algoliasearch-client-objc" "algoliasearch-client-js" "algoliasearch-client-cmd" "algoliasearch-client-php" "algoliasearch-client-node")
 
-# Clean the staging index of all sub-repos, reverting to the latest commit
-if [ "$#" = "1" -a "$1" = "--revert" ] ; then
-  echo "ALL README.md FILES ARE GOING TO BE RESET, HIT CTRL-C TO STOP."
-  sleep 10
-  for dir in ../algoliasearch-client-*; do
-    if [[ $dir =~ readme-generator ]]; then
-      continue;
-    fi
-    cd "$dir"
-    echo "$dir"
-    git reset --hard
-  done
-  exit 0
-fi
-
-# Show the diff of all subrepos
-if [ "$#" = "1" -a "$1" = "--show" ] ; then
-  echo "Generate README.mds"
-  ruby ./doc-generator.rb config.json
-  for dir in ../algoliasearch-client-*; do
-    if [[ $dir =~ readme-generator ]]; then
-      continue;
-    fi
-    cd "$dir"
-    echo "$dir"
-    git diff README.md
-  done
-  exit 0
-fi
-
-# Update all subrepos to the latest master
-if [ "$#" = "1" -a "$1" = "--prepare" ] ; then
-  echo "prepare repos to update README.mds"
-  ruby ./doc-generator.rb config.json
-  for dir in ../algoliasearch-client-*; do
-    if [[ $dir =~ readme-generator ]]; then
-      continue;
-    fi
-    cd "$dir"
-    echo "$dir"
-    git checkout README.md; git pull -r
-  done
-  exit 0
-fi
-
-
-if [ "$#" != "1" -o "$1" != "--push" ] ; then
-  echo "Usage: ./commit {--show|--revert|--push|--prepare}"
-  exit 1
-fi
-
-echo "Generate README.mds"
-ruby ./doc-generator.rb config.json
-if [ "$?" != "0" ] ; then
-  echo "Generation failed: stop"
-  exit 1
-fi
-
-
-echo "Enter the commit message:"
-read commitMessage
-
-for dir in ../algoliasearch-client-*; do
-  if [[ $dir =~ readme-generator ]]; then
-    continue;
-  fi
-  echo "$dir/README.md"
-  sleep 1
-  cd "$dir"
-  git diff README.md
-  git commit README.md -m "$commitMessage"
-  git pull -r
-  if [ "$?" != "0" ] ; then
-    echo "Pull refused stop"
-    exit 1
-  fi
-  git push
-  if [ "$?" != "0" ] ; then
-    echo "Push refused stop"
-    exit 1
+#step 1 : clone
+for repo in "${REPOS[@]}"; do
+  if [ ! -d "$DIRECTORY" ]; then
+    git clone "git@github.com:algoliareadmebot/"$repo
   fi
 done
 
-echo "README.mds committed !"
+# step 2: rebase from origin
+for dir in "${REPOS[@]}"; do
+  if [[ $dir =~ readme-generator ]]; then
+    continue;
+  fi
+  cd "$dir"
+  git checkout master
+  git pull -r "git@github.com:algolia/"$dir master
+  cd ../
+done
+
+#step 3: generate readmes
+ruby ./doc-generator.rb config.json
+
+#step 4 ask for commit message
+echo "Enter a commit message"
+read commitMessage
+
+#step 5 commit and push and pull request
+for dir in "${REPOS[@]}"; do
+
+  cd "$dir"
+  git commit README.md -m "$commitMessage"
+  if [ "$?" != "0" ] ; then
+    echo "no commit added for "$dir
+    continue;
+  fi
+
+  git push https://${GH_TOKEN}@github.com/algoliareadmebot/"$dir".git master
+  if [ "$?" != "0" ] ; then
+    echo "A problem happened while pushing"
+    exit 1
+  fi
+
+  ruby ../send-pull-request.rb $dir
+  if [ "$?" != "0" ] ; then
+    echo "Cannot create pull request for some reason!"
+    exit 1
+  fi
+  echo "Pull request created for "$dir
+done
+echo "the bot is done !"
 exit 0
