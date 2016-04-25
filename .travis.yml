@@ -9,6 +9,7 @@ before_install:
   - rvm install 2.2.0
   - rvm use 2.2.0
   - gem install redcarpet -v 3.3.2
+  - gem install octokit -v 4.3.0
 script: tools/commit.sh
 gemfile: Gemfile
 branches:

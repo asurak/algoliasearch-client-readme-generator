@@ -28,14 +28,14 @@ ruby ./doc-generator.rb config.json
 for dir in "${REPOS[@]}"; do
 
   cd "$dir"
-  git commit README.md -m 'Update Read Me'
+  #git commit README.md -m 'Update Read Me'
   if [ "$?" != "0" ] ; then
     echo "no commit added for "$dir
     cd ../
     continue;
   fi
 
-  git push https://${GH_TOKEN}@github.com/algoliareadmebot/"$dir".git master
+  #git push https://${GH_TOKEN}@github.com/algoliareadmebot/"$dir".git master
   if [ "$?" != "0" ] ; then
     echo "A problem happened while pushing"
     cd ../
