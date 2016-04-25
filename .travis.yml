@@ -9,7 +9,7 @@ before_install:
   - rvm install 2.2.0
   - rvm use 2.2.0
 script: tools/commit.sh
-gemfile: docs/Gemfile
+gemfile: Gemfile
 branches:
   only:
     - master
