@@ -1,40 +1,7 @@
 {
   "languages":{
     "Ruby": {
-      "outputDir": "../../algoliasearch-client-ruby"
-    },
-    "PHP": {
-      "outputDir": "../../algoliasearch-client-php"
-    },
-    "Python": {
-      "outputDir": "../../algoliasearch-client-python"
-    },
-    "JavaScript": {
-      "outputDir": "../../algoliasearch-client-js"
-    },
-    "Shell": {
-      "outputDir": "../../algoliasearch-client-cmd"
-    },
-    "C#": {
-      "outputDir": "../../algoliasearch-client-csharp"
-    },
-    "Java": {
-      "outputDir": "../../algoliasearch-client-java"
-    },
-    "Android": {
-      "outputDir": "../../algoliasearch-client-android"
-    },
-    "Objective-C": {
-      "outputDir": "../../algoliasearch-client-objc"
-    },
-    "Swift": {
-      "outputDir": "../../algoliasearch-client-swift"
-    },
-    "Go": {
-      "outputDir": "../../algoliasearch-client-go"
-    },
-    "Scala": {
-      "outputDir": "../../algoliasearch-client-scala"
+      "outputDir": "../algoliasearch-client-ruby"
     }
   },
   "templateFiles": [

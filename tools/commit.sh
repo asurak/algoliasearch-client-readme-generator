@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-REPOS=("algoliasearch-client-go" "algoliasearch-client-csharp" "algoliasearch-client-swift" "algoliasearch-client-android" "algoliasearch-client-go" "algoliasearch-client-java" "algoliasearch-client-ruby" "algoliasearch-client-python" "algoliasearch-client-scala" "algoliasearch-client-objc" "algoliasearch-client-js" "algoliasearch-client-cmd" "algoliasearch-client-php" "algoliasearch-client-node")
+#REPOS=("algoliasearch-client-csharp" "algoliasearch-client-swift" "algoliasearch-client-android" "algoliasearch-client-go" "algoliasearch-client-java" "algoliasearch-client-ruby" "algoliasearch-client-python" "algoliasearch-client-scala" "algoliasearch-client-objc" "algoliasearch-client-js" "algoliasearch-client-cmd" "algoliasearch-client-php" "algoliasearch-client-node")
+REPOS=("algoliasearch-client-ruby")
 
 #step 1 : clone
 for repo in "${REPOS[@]}"; do
@@ -30,21 +31,25 @@ for dir in "${REPOS[@]}"; do
   git commit README.md -m 'Update Read Me'
   if [ "$?" != "0" ] ; then
     echo "no commit added for "$dir
+    cd ../
     continue;
   fi
 
   git push https://${GH_TOKEN}@github.com/algoliareadmebot/"$dir".git master
   if [ "$?" != "0" ] ; then
     echo "A problem happened while pushing"
+    cd ../
     exit 1
   fi
 
   ruby ../send-pull-request.rb $dir
   if [ "$?" != "0" ] ; then
     echo "Cannot create pull request for some reason!"
+    cd ../
     exit 1
   fi
   echo "Pull request created for "$dir
+  cd ../
 done
 echo "the bot is done !"
 exit 0
