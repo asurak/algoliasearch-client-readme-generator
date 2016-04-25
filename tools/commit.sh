@@ -45,7 +45,8 @@ for dir in "${REPOS[@]}"; do
   if [ "$?" != "0" ] ; then
     echo "Cannot create pull request for some reason!"
     cd ../
-    exit 1
+    #the API throws an exceptions when a PR already exists
+    continue;
   fi
   echo "Pull request created for "$dir
   cd ../
