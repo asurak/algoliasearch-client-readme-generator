@@ -20,7 +20,7 @@ That's probably not the repository you were looking for. For Algolia's REST API 
 Usage
 ------
 
-After a change is merged, a travis job will run and automatically:
+After a change is merged, a travis job will :
 - clone each repository
 - generate and update each READMEs
 - push and create a pull request on each repositories
