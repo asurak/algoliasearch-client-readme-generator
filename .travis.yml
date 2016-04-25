@@ -6,6 +6,8 @@ language: ruby
 before_install:
   - 'git config --global user.email "algoliareadmebot@users.noreply.github.com"'
   - 'git config --global user.name "algoliareadmebot"'
+  - rvm install 2.2.0
+  - rvm use 2.2.0
 script: tools/commit.sh
 gemfile: docs/Gemfile
 branches:
