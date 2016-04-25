@@ -43,7 +43,7 @@ for dir in "${REPOS[@]}"; do
     exit 1
   fi
 
-  ruby ../send-pull-request.rb $dir
+  ruby ../src/send-pull-request.rb $dir
   if [ "$?" != "0" ] ; then
     echo "Cannot create pull request for some reason!"
     cd ../
