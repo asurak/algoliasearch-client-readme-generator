@@ -5,7 +5,7 @@ REPOS=("algoliasearch-client-go" "algoliasearch-client-csharp" "algoliasearch-cl
 #step 1 : clone
 for repo in "${REPOS[@]}"; do
   if [ ! -d "$DIRECTORY" ]; then
-    git clone "git@github.com:algoliareadmebot/"$repo
+    git clone "https://github.com/algoliareadmebot/"$repo
   fi
 done
 
@@ -16,22 +16,18 @@ for dir in "${REPOS[@]}"; do
   fi
   cd "$dir"
   git checkout master
-  git pull -r "git@github.com:algolia/"$dir master
+  git pull -r "https://github.com/algolia/"$dir master
   cd ../
 done
 
 #step 3: generate readmes
 ruby ./doc-generator.rb config.json
 
-#step 4 ask for commit message
-echo "Enter a commit message"
-read commitMessage
-
 #step 5 commit and push and pull request
 for dir in "${REPOS[@]}"; do
 
   cd "$dir"
-  git commit README.md -m "$commitMessage"
+  git commit README.md -m 'Update Read Me'
   if [ "$?" != "0" ] ; then
     echo "no commit added for "$dir
     continue;
