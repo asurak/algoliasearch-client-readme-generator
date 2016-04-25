@@ -8,6 +8,7 @@ before_install:
   - 'git config --global user.name "algoliareadmebot"'
   - rvm install 2.2.0
   - rvm use 2.2.0
+  - gem install redcarpet -v 3.3.2
 script: tools/commit.sh
 gemfile: Gemfile
 branches:
