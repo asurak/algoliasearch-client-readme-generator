@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-#REPOS=("algoliasearch-client-csharp" "algoliasearch-client-swift" "algoliasearch-client-android" "algoliasearch-client-go" "algoliasearch-client-java" "algoliasearch-client-ruby" "algoliasearch-client-python" "algoliasearch-client-scala" "algoliasearch-client-objc" "algoliasearch-client-js" "algoliasearch-client-cmd" "algoliasearch-client-php" "algoliasearch-client-node")
-REPOS=("algoliasearch-client-ruby")
+REPOS=("algoliasearch-client-csharp" "algoliasearch-client-swift" "algoliasearch-client-android" "algoliasearch-client-go" "algoliasearch-client-java" "algoliasearch-client-ruby" "algoliasearch-client-python" "algoliasearch-client-scala" "algoliasearch-client-objc" "algoliasearch-client-js" "algoliasearch-client-cmd" "algoliasearch-client-php" "algoliasearch-client-node")
 
 #step 1 : clone
 for repo in "${REPOS[@]}"; do
@@ -28,14 +27,14 @@ ruby ./doc-generator.rb config.json
 for dir in "${REPOS[@]}"; do
 
   cd "$dir"
-  #git commit README.md -m 'Update Read Me'
+  git commit README.md -m 'Update Read Me'
   if [ "$?" != "0" ] ; then
     echo "no commit added for "$dir
     cd ../
     continue;
   fi
 
-  #git push https://${GH_TOKEN}@github.com/algoliareadmebot/"$dir".git master
+  git push https://${GH_TOKEN}@github.com/algoliareadmebot/"$dir".git master
   if [ "$?" != "0" ] ; then
     echo "A problem happened while pushing"
     cd ../
