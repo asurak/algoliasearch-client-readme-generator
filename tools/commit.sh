@@ -35,6 +35,8 @@ for dir in "${REPOS[@]}"; do
   fi
 
   git push https://${GH_TOKEN}@github.com/algoliareadmebot/"$dir".git master
+  sleep 1
+
   if [ "$?" != "0" ] ; then
     echo "A problem happened while pushing"
     cd ../
