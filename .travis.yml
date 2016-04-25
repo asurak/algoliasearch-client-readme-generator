@@ -13,8 +13,6 @@ gemfile: Gemfile
 branches:
   only:
     - master
-cache:
-  bundler: true
 env:
   global:
     # GH_TOKEN
