@@ -14,8 +14,8 @@ class SendPullRequest
       "algolia/#{@repo}",
       "master",
       "algoliareadmebot:master",
-      "Update readme",
-      "Update read me"
+      "Update README",
+      "Update README"
     )
   end
 end

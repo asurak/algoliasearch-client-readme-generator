@@ -27,7 +27,7 @@ ruby ./doc-generator.rb config.json
 for dir in "${REPOS[@]}"; do
 
   cd "$dir"
-  git commit README.md -m 'Update Read Me'
+  git commit README.md -m 'Update README'
   if [ "$?" != "0" ] ; then
     echo "no commit added for "$dir
     cd ../
